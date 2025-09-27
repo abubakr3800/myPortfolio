@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Loading Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-box { 
+            border: 2px solid #333; 
+            padding: 20px; 
+            margin: 20px 0; 
+            background: #f9f9f9;
+        }
+        .result { 
+            background: #e9ecef; 
+            padding: 10px; 
+            margin: 10px 0; 
+            border-radius: 5px;
+            white-space: pre-wrap;
+        }
+        button { 
+            padding: 10px 20px; 
+            margin: 10px 5px; 
+            background: #007bff; 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer;
+        }
+        button:hover { background: #0056b3; }
+        .error { background: #f8d7da; color: #721c24; }
+        .success { background: #d4edda; color: #155724; }
+    </style>
+</head>
+<body>
+    <h1>Data Loading Test</h1>
+    
+    <div class="test-box">
+        <h3>Test Data Loading Methods:</h3>
+        <button onclick="testDirectFile('bkr')">Test Direct File (bkr)</button>
+        <button onclick="testAPI('bkr')">Test API (bkr)</button>
+        <button onclick="testDirectFile('testuser')">Test Direct File (testuser)</button>
+        <button onclick="testAPI('testuser')">Test API (testuser)</button>
+        <button onclick="clearResults()">Clear Results</button>
+    </div>
+    
+    <div class="test-box">
+        <h3>Results:</h3>
+        <div id="results"></div>
+    </div>
+
+    <script>
+        function addResult(message, isError = false) {
+            const results = document.getElementById('results');
+            const div = document.createElement('div');
+            div.className = `result ${isError ? 'error' : 'success'}`;
+            div.textContent = new Date().toLocaleTimeString() + ': ' + message;
+            results.appendChild(div);
+            results.scrollTop = results.scrollHeight;
+        }
+        
+        function clearResults() {
+            document.getElementById('results').innerHTML = '';
+        }
+        
+        async function testDirectFile(username) {
+            addResult(`Testing direct file loading for user: ${username}`);
+            try {
+                const response = await fetch(`data/users/${username}/data.json`);
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                const data = await response.json();
+                addResult(`Direct file success - Name: ${data.personal?.name || 'N/A'}, Title: ${data.personal?.title || 'N/A'}`);
+                console.log('Direct file data:', data);
+            } catch (error) {
+                addResult(`Direct file error: ${error.message}`, true);
+                console.error('Direct file error:', error);
+            }
+        }
+        
+        async function testAPI(username) {
+            addResult(`Testing API loading for user: ${username}`);
+            try {
+                const response = await fetch(`api/data.php?action=get&username=${username}`);
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                const result = await response.json();
+                if (result.success) {
+                    addResult(`API success - Name: ${result.data.personal?.name || 'N/A'}, Title: ${result.data.personal?.title || 'N/A'}`);
+                    console.log('API data:', result.data);
+                } else {
+                    addResult(`API error: ${result.message}`, true);
+                }
+            } catch (error) {
+                addResult(`API error: ${error.message}`, true);
+                console.error('API error:', error);
+            }
+        }
+        
+        // Test on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            addResult('Page loaded - ready for testing');
+        });
+    </script>
+</body>
+</html>

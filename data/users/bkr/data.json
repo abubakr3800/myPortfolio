@@ -1,0 +1,108 @@
+{
+    "personal": {
+        "name": "Ahmed Mohamed Abubakr",
+        "title": "Research Engineer | Electronics & Communications",
+        "location": "Giza",
+        "phone": "01113284597",
+        "email": "ahmed.mo.abubakr@gmail.com",
+        "objective": "I am a Research Engineer with expertise in electronics and communications, passionate about developing innovative solutions and contributing to technological advancement.",
+        "cv": "data\/users\/bkr\/documents\/68d518c5764cd_Arab_tech__production_line_Report.pdf"
+    },
+    "education": {
+        "degree": "Bachelor of engineering",
+        "institution": "Sohag",
+        "year": "2022"
+    },
+    "experience": [
+        {
+            "title": "Research Engineerung",
+            "company": "Short Circuit",
+            "period": "2025-2026",
+            "description": [
+                "Examples:",
+                "\u2022 Led a team of 5 developers",
+                "\u2022 Implemented new features using React",
+                "\u2022 Improved performance by 40%",
+                "\u2022 Collaborated with cross-functional teams"
+            ]
+        }
+    ],
+    "volunteering": [],
+    "certificates": [],
+    "skills": {
+        "technical": [
+            "Python",
+            "JavaScript",
+            "HTML\/CSS",
+            "Digital Electronics",
+            "Circuit Design"
+        ],
+        "teaching": [
+            "Technical Training",
+            "Project Management"
+        ],
+        "languages": [
+            "English",
+            "Arabic"
+        ]
+    },
+    "projects": {
+        "electronics": [
+            {
+                "name": "Hamming 47 Transmitter",
+                "description": "Digital communication system transmitter implementing Hamming (4,7) error correction code",
+                "image": "assets\/projects\/electronics\/hamming 47 transmitter\/hamming 47  transmitter.png",
+                "images": [
+                    "assets\/projects\/electronics\/hamming 47 transmitter\/hamming 47  transmitter.png"
+                ],
+                "technologies": [
+                    "Digital Electronics",
+                    "Error Correction",
+                    "Communication Systems"
+                ]
+            },
+            {
+                "name": "Huffman Coding Visualizer",
+                "description": "A Python-based Huffman coding visualizer and compressor. Includes a demo video and source code.",
+                "image": "assets\/projects\/electronics\/haufmann\/huffman.png",
+                "images": [
+                    "assets\/projects\/electronics\/haufmann\/huffman.png"
+                ],
+                "repoUrl": "https:\/\/github.com\/abubakr3800\/huffman",
+                "liveUrl": "https:\/\/abubakr3800.github.io\/huffman",
+                "technologies": [
+                    "Python",
+                    "Data Compression",
+                    "Huffman Coding",
+                    "Algorithm Visualization"
+                ]
+            }
+        ],
+        "web": [
+            {
+                "name": "Akar",
+                "description": "Modern web application with responsive design and interactive features",
+                "liveUrl": "https:\/\/area-web.github.io\/ahmed2\/",
+                "images": [
+                    "assets\/projects\/web\/akar\/akar.jpg",
+                    "assets\/projects\/web\/akar\/akar_2.jpg",
+                    "assets\/projects\/web\/akar\/akar_3.jpg"
+                ],
+                "technologies": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "Responsive Design"
+                ]
+            }
+        ],
+        "trainings": []
+    },
+    "social": {
+        "linktree": "https:\/\/linktr.ee\/ahmed_abubakr",
+        "individual": {
+            "github": "https:\/\/github.com\/abubakr3800",
+            "linkedin": "https:\/\/linkedin.com\/in\/ahmed-mohamed-abubakr"
+        }
+    }
+}

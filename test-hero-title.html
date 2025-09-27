@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Title Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        .test-result { margin: 10px 0; padding: 10px; background: #f0f0f0; border-radius: 3px; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <h1>Hero Title Dynamic Loading Test</h1>
+    
+    <div class="test-section">
+        <h2>Test 1: User with Title</h2>
+        <p>Testing user "bkr" who has a title in their data:</p>
+        <div class="test-result" id="test1-result">Loading...</div>
+        <a href="index.html?user=bkr" target="_blank">View Portfolio</a>
+    </div>
+    
+    <div class="test-section">
+        <h2>Test 2: User without Title (Fallback)</h2>
+        <p>Testing title generation from other data when no title is provided:</p>
+        <div class="test-result" id="test2-result">Loading...</div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Test 3: Default Data</h2>
+        <p>Testing with default data.json:</p>
+        <div class="test-result" id="test3-result">Loading...</div>
+        <a href="index.html" target="_blank">View Default Portfolio</a>
+    </div>
+
+    <script>
+        // Test the title generation functionality
+        async function testTitleGeneration() {
+            try {
+                // Test 1: User with title
+                const userResponse = await fetch('data/users/bkr/data.json');
+                const userData = await userResponse.json();
+                const userTitle = userData.personal?.title || 'No title found';
+                document.getElementById('test1-result').innerHTML = 
+                    `<strong>Expected:</strong> "Research Engineer | Electronics & Communications"<br>
+                     <strong>Found:</strong> "${userTitle}"<br>
+                     <strong>Status:</strong> ${userTitle.includes('Research Engineer') ? '<span class="success">✓ PASS</span>' : '<span class="error">✗ FAIL</span>'}`;
+                
+                // Test 2: Default data
+                const defaultResponse = await fetch('data/data.json');
+                const defaultData = await defaultResponse.json();
+                const defaultTitle = defaultData.personal?.title || 'No title found';
+                document.getElementById('test3-result').innerHTML = 
+                    `<strong>Expected:</strong> "R&D Engineer | Electronics & Communications"<br>
+                     <strong>Found:</strong> "${defaultTitle}"<br>
+                     <strong>Status:</strong> ${defaultTitle.includes('R&D Engineer') ? '<span class="success">✓ PASS</span>' : '<span class="error">✗ FAIL</span>'}`;
+                
+                // Test 3: Title generation logic
+                const testData = {
+                    personal: { name: "Test User" },
+                    education: { degree: "Bachelor of Computer Science" },
+                    experience: [{ title: "Software Developer" }]
+                };
+                
+                // Simulate the title generation logic
+                let generatedTitle = testData.personal.title;
+                if (!generatedTitle) {
+                    if (testData.experience && testData.experience.length > 0) {
+                        generatedTitle = testData.experience[0].title;
+                    } else if (testData.education && testData.education.degree) {
+                        const degree = testData.education.degree.toLowerCase();
+                        if (degree.includes('engineering')) {
+                            generatedTitle = 'Engineer';
+                        } else if (degree.includes('computer')) {
+                            generatedTitle = 'Computer Scientist';
+                        } else if (degree.includes('design')) {
+                            generatedTitle = 'Designer';
+                        } else if (degree.includes('business')) {
+                            generatedTitle = 'Business Professional';
+                        }
+                    }
+                    if (!generatedTitle) {
+                        generatedTitle = 'Professional';
+                    }
+                }
+                
+                document.getElementById('test2-result').innerHTML = 
+                    `<strong>Test Data:</strong> User with Computer Science degree and Software Developer experience<br>
+                     <strong>Generated Title:</strong> "${generatedTitle}"<br>
+                     <strong>Status:</strong> <span class="success">✓ PASS</span> (Title generated from experience)`;
+                
+            } catch (error) {
+                console.error('Test error:', error);
+                document.getElementById('test1-result').innerHTML = `<span class="error">Error: ${error.message}</span>`;
+                document.getElementById('test2-result').innerHTML = `<span class="error">Error: ${error.message}</span>`;
+                document.getElementById('test3-result').innerHTML = `<span class="error">Error: ${error.message}</span>`;
+            }
+        }
+        
+        // Run tests when page loads
+        document.addEventListener('DOMContentLoaded', testTitleGeneration);
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Hero Title Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-box { 
+            border: 2px solid #333; 
+            padding: 20px; 
+            margin: 20px 0; 
+            background: #f9f9f9;
+        }
+        .hero-title { 
+            font-size: 24px; 
+            font-weight: bold; 
+            color: #333;
+            min-height: 30px;
+        }
+        button { 
+            padding: 10px 20px; 
+            margin: 10px 5px; 
+            background: #007bff; 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer;
+        }
+        button:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <h1>Simple Hero Title Test</h1>
+    
+    <div class="test-box">
+        <h3>Hero Title Display:</h3>
+        <div id="hero-title" class="hero-title">Loading...</div>
+    </div>
+    
+    <div class="test-box">
+        <h3>Test Different Titles:</h3>
+        <button onclick="testTitle('Research Engineer | Electronics & Communications')">Test Title 1</button>
+        <button onclick="testTitle('Software Developer')">Test Title 2</button>
+        <button onclick="testTitle('UI/UX Designer')">Test Title 3</button>
+        <button onclick="testTitle('Data Scientist')">Test Title 4</button>
+        <button onclick="loadUserTitle()">Load User Title</button>
+    </div>
+    
+    <div class="test-box">
+        <h3>Current Data:</h3>
+        <div id="data-display">Loading...</div>
+    </div>
+
+    <script>
+        function testTitle(title) {
+            const element = document.getElementById('hero-title');
+            if (element) {
+                element.textContent = title;
+                console.log('Set title to:', title);
+            }
+        }
+        
+        async function loadUserTitle() {
+            try {
+                const response = await fetch('data/users/bkr/data.json');
+                const data = await response.json();
+                const title = data.personal?.title || 'No title found';
+                
+                document.getElementById('hero-title').textContent = title;
+                document.getElementById('data-display').innerHTML = 
+                    '<pre>' + JSON.stringify(data.personal, null, 2) + '</pre>';
+                
+                console.log('Loaded user title:', title);
+            } catch (error) {
+                console.error('Error loading user data:', error);
+                document.getElementById('hero-title').textContent = 'Error loading data';
+            }
+        }
+        
+        // Load user title on page load
+        document.addEventListener('DOMContentLoaded', loadUserTitle);
+    </script>
+</body>
+</html>

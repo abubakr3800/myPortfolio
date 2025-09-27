@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Dashboard</title>
+    <link href="assets/library/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="css/dashboard.css" rel="stylesheet">
+    <link href="css/themes.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-tachometer-alt me-2"></i>Portfolio Dashboard
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="previewLink" target="_blank">
+                            <i class="fas fa-eye me-2"></i>Preview Portfolio
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user me-2"></i><span id="currentUsername">User</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" onclick="AuthSystem.logout()">
+                                <i class="fas fa-sign-out-alt me-2"></i>Logout
+                            </a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" data-section="personal">
+                                <i class="fas fa-user me-2"></i>Personal Info
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-section="education">
+                                <i class="fas fa-graduation-cap me-2"></i>Education
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-section="experience">
+                                <i class="fas fa-briefcase me-2"></i>Experience
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-section="volunteering">
+                                <i class="fas fa-hands-helping me-2"></i>Volunteering
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-section="skills">
+                                <i class="fas fa-cogs me-2"></i>Skills
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-section="projects">
+                                <i class="fas fa-project-diagram me-2"></i>Projects
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-section="certificates">
+                                <i class="fas fa-certificate me-2"></i>Certificates
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-section="media">
+                                <i class="fas fa-images me-2"></i>Media Manager
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-section="social">
+                                <i class="fas fa-share-alt me-2"></i>Social Links
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-section="theme">
+                                <i class="fas fa-palette me-2"></i>Theme
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-section="account">
+                                <i class="fas fa-user-cog me-2"></i>Account Settings
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2" id="sectionTitle">Personal Information</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="btn-group me-2">
+                            <button type="button" class="btn btn-sm btn-outline-secondary" id="saveBtn">
+                                <i class="fas fa-save me-2"></i>Save Changes
+                            </button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" id="resetBtn">
+                                <i class="fas fa-undo me-2"></i>Reset
+                            </button>
+                        </div>
+                        <div class="btn-group">
+                            <span id="saveStatus" class="btn btn-sm btn-outline-success" style="display: none;">
+                                <i class="fas fa-check me-2"></i>Saved
+                            </span>
+                            <span id="savingStatus" class="btn btn-sm btn-outline-warning" style="display: none;">
+                                <i class="fas fa-spinner fa-spin me-2"></i>Saving...
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alert Container -->
+                <div id="alertContainer"></div>
+
+                <!-- Content Sections -->
+                <div id="contentSections">
+                    <!-- Personal Information Section -->
+                    <div class="content-section" id="personal-section">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h5><i class="fas fa-user me-2"></i>Basic Information</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="mb-3">
+                                            <label for="personalName" class="form-label">Full Name</label>
+                                            <input type="text" class="form-control" id="personalName" placeholder="Enter your full name">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="personalTitle" class="form-label">Professional Title</label>
+                                            <input type="text" class="form-control" id="personalTitle" placeholder="e.g., Software Engineer, Designer, Researcher">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="personalLocation" class="form-label">Location</label>
+                                            <input type="text" class="form-control" id="personalLocation" placeholder="City, Country">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="personalPhone" class="form-label">Phone</label>
+                                            <input type="tel" class="form-control" id="personalPhone" placeholder="Your phone number">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="personalEmail" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="personalEmail" placeholder="your.email@example.com">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h5><i class="fas fa-file-alt me-2"></i>Additional Information</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="mb-3">
+                                            <label for="personalObjective" class="form-label">Professional Objective</label>
+                                            <textarea class="form-control" id="personalObjective" rows="4" placeholder="Describe your professional goals and objectives"></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="personalCV" class="form-label">CV File</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" id="personalCV" placeholder="Path to CV file">
+                                                <button class="btn btn-outline-secondary" type="button" id="uploadCVBtn">
+                                                    <i class="fas fa-upload me-2"></i>Upload
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Education Section -->
+                    <div class="content-section" id="education-section" style="display: none;">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5><i class="fas fa-graduation-cap me-2"></i>Education</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <label for="educationDegree" class="form-label">Degree</label>
+                                            <input type="text" class="form-control" id="educationDegree" placeholder="e.g., Bachelor of Engineering">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <label for="educationInstitution" class="form-label">Institution</label>
+                                            <input type="text" class="form-control" id="educationInstitution" placeholder="University Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <label for="educationYear" class="form-label">Year</label>
+                                            <input type="text" class="form-control" id="educationYear" placeholder="2023">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Experience Section -->
+                    <div class="content-section" id="experience-section" style="display: none;">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h5><i class="fas fa-briefcase me-2"></i>Experience</h5>
+                                <button class="btn btn-sm btn-primary" id="addExperienceBtn">
+                                    <i class="fas fa-plus me-2"></i>Add Experience
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <div id="experienceList">
+                                    <!-- Experience items will be loaded here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Volunteering Section -->
+                    <div class="content-section" id="volunteering-section" style="display: none;">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h5><i class="fas fa-hands-helping me-2"></i>Volunteering & Leadership</h5>
+                                <button class="btn btn-sm btn-primary" id="addVolunteeringBtn">
+                                    <i class="fas fa-plus me-2"></i>Add Volunteering
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <div id="volunteeringList">
+                                    <!-- Volunteering items will be loaded here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skills Section -->
+                    <div class="content-section" id="skills-section" style="display: none;">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5><i class="fas fa-cogs me-2"></i>Skills</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <h6>Technical Skills</h6>
+                                        <div id="technicalSkillsList">
+                                            <!-- Technical skills will be loaded here -->
+                                        </div>
+                                        <div class="input-group mt-2">
+                                            <input type="text" class="form-control" id="newTechnicalSkill" placeholder="Add technical skill">
+                                            <button class="btn btn-outline-primary" type="button" id="addTechnicalSkillBtn">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h6>Teaching Skills</h6>
+                                        <div id="teachingSkillsList">
+                                            <!-- Teaching skills will be loaded here -->
+                                        </div>
+                                        <div class="input-group mt-2">
+                                            <input type="text" class="form-control" id="newTeachingSkill" placeholder="Add teaching skill">
+                                            <button class="btn btn-outline-primary" type="button" id="addTeachingSkillBtn">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h6>Languages</h6>
+                                        <div id="languageSkillsList">
+                                            <!-- Language skills will be loaded here -->
+                                        </div>
+                                        <div class="input-group mt-2">
+                                            <input type="text" class="form-control" id="newLanguageSkill" placeholder="Add language">
+                                            <button class="btn btn-outline-primary" type="button" id="addLanguageSkillBtn">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projects Section -->
+                    <div class="content-section" id="projects-section" style="display: none;">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h5><i class="fas fa-project-diagram me-2"></i>Projects</h5>
+                                <div class="btn-group">
+                                    <button class="btn btn-sm btn-primary" id="addElectronicsProjectBtn">
+                                        <i class="fas fa-microchip me-2"></i>Add Electronics Project
+                                    </button>
+                                    <button class="btn btn-sm btn-primary" id="addWebProjectBtn">
+                                        <i class="fas fa-code me-2"></i>Add Web Project
+                                    </button>
+                                    <button class="btn btn-sm btn-primary" id="addTrainingProjectBtn">
+                                        <i class="fas fa-graduation-cap me-2"></i>Add Training Project
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <h6>Electronics Projects</h6>
+                                        <div id="electronicsProjectsList">
+                                            <!-- Electronics projects will be loaded here -->
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h6>Web Projects</h6>
+                                        <div id="webProjectsList">
+                                            <!-- Web projects will be loaded here -->
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h6>Training Projects</h6>
+                                        <div id="trainingProjectsList">
+                                            <!-- Training projects will be loaded here -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certificates Section -->
+                    <div class="content-section" id="certificates-section" style="display: none;">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h5><i class="fas fa-certificate me-2"></i>Certificates</h5>
+                                <button class="btn btn-sm btn-primary" id="addCertificateBtn">
+                                    <i class="fas fa-plus me-2"></i>Add Certificate
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <div id="certificatesList">
+                                    <!-- Certificates will be loaded here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Media Manager Section -->
+                    <div class="content-section" id="media-section" style="display: none;">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5><i class="fas fa-images me-2"></i>Media Manager</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6>Upload Images</h6>
+                                        <div class="mb-3">
+                                            <label for="imageUpload" class="form-label">Select Images</label>
+                                            <input type="file" class="form-control" id="imageUpload" multiple accept="image/*">
+                                        </div>
+                                        <button class="btn btn-primary" id="uploadImagesBtn">
+                                            <i class="fas fa-upload me-2"></i>Upload Images
+                                        </button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6>Upload Documents</h6>
+                                        <div class="mb-3">
+                                            <label for="documentUpload" class="form-label">Select Documents</label>
+                                            <input type="file" class="form-control" id="documentUpload" multiple accept=".pdf,.doc,.docx">
+                                        </div>
+                                        <button class="btn btn-primary" id="uploadDocumentsBtn">
+                                            <i class="fas fa-upload me-2"></i>Upload Documents
+                                        </button>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h6>Uploaded Files</h6>
+                                        <div id="uploadedFilesList">
+                                            <!-- Uploaded files will be listed here -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Links Section -->
+                    <div class="content-section" id="social-section" style="display: none;">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5><i class="fas fa-share-alt me-2"></i>Social Media Links</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <p class="text-muted">Add your social media links to help visitors connect with you. You can use Linktree to collect all your links in one place, or add individual social media links.</p>
+                                        
+                                        <!-- Linktree Option -->
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-info text-white">
+                                                <h6 class="mb-0"><i class="fas fa-link me-2"></i>Linktree Option (Recommended)</h6>
+                                            </div>
+                                            <div class="card-body">
+                                                <p class="mb-3">Linktree allows you to collect all your social media links in one place. This is perfect if you have multiple social accounts.</p>
+                                                <div class="mb-3">
+                                                    <label for="linktreeUrl" class="form-label">Linktree URL</label>
+                                                    <input type="url" class="form-control" id="linktreeUrl" placeholder="https://linktr.ee/yourusername">
+                                                    <div class="form-text">Enter your complete Linktree URL</div>
+                                                </div>
+                                                <div class="alert alert-info">
+                                                    <h6><i class="fas fa-info-circle me-2"></i>How to create a Linktree:</h6>
+                                                    <ol class="mb-0">
+                                                        <li>Go to <a href="https://linktr.ee" target="_blank">linktr.ee</a></li>
+                                                        <li>Sign up for a free account</li>
+                                                        <li>Add your social media links</li>
+                                                        <li>Copy your Linktree URL and paste it above</li>
+                                                    </ol>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Individual Social Media Links -->
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h6 class="mb-0"><i class="fas fa-users me-2"></i>Individual Social Media Links</h6>
+                                            </div>
+                                            <div class="card-body">
+                                                <p class="mb-3">Alternatively, you can add individual social media links. Choose the ones you want to display.</p>
+                                                
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="facebookUrl" class="form-label">
+                                                                <i class="fab fa-facebook me-2"></i>Facebook
+                                                            </label>
+                                                            <input type="url" class="form-control" id="facebookUrl" placeholder="https://facebook.com/yourusername">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="twitterUrl" class="form-label">
+                                                                <i class="fab fa-twitter me-2"></i>Twitter
+                                                            </label>
+                                                            <input type="url" class="form-control" id="twitterUrl" placeholder="https://twitter.com/yourusername">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="linkedinUrl" class="form-label">
+                                                                <i class="fab fa-linkedin me-2"></i>LinkedIn
+                                                            </label>
+                                                            <input type="url" class="form-control" id="linkedinUrl" placeholder="https://linkedin.com/in/yourusername">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="instagramUrl" class="form-label">
+                                                                <i class="fab fa-instagram me-2"></i>Instagram
+                                                            </label>
+                                                            <input type="url" class="form-control" id="instagramUrl" placeholder="https://instagram.com/yourusername">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="githubUrl" class="form-label">
+                                                                <i class="fab fa-github me-2"></i>GitHub
+                                                            </label>
+                                                            <input type="url" class="form-control" id="githubUrl" placeholder="https://github.com/yourusername">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="youtubeUrl" class="form-label">
+                                                                <i class="fab fa-youtube me-2"></i>YouTube
+                                                            </label>
+                                                            <input type="url" class="form-control" id="youtubeUrl" placeholder="https://youtube.com/c/yourchannel">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="behanceUrl" class="form-label">
+                                                                <i class="fab fa-behance me-2"></i>Behance
+                                                            </label>
+                                                            <input type="url" class="form-control" id="behanceUrl" placeholder="https://behance.net/yourusername">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="dribbbleUrl" class="form-label">
+                                                                <i class="fab fa-dribbble me-2"></i>Dribbble
+                                                            </label>
+                                                            <input type="url" class="form-control" id="dribbbleUrl" placeholder="https://dribbble.com/yourusername">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mt-4">
+                                            <button class="btn btn-primary" id="saveSocialBtn">
+                                                <i class="fas fa-save me-2"></i>Save Social Links
+                                            </button>
+                                            <button class="btn btn-outline-secondary ms-2" id="previewSocialBtn">
+                                                <i class="fas fa-eye me-2"></i>Preview Social Links
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h6>Preview</h6>
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h6>Social Links Preview</h6>
+                                                <div id="socialLinksPreview">
+                                                    <p class="text-muted">Your social links will appear here</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mt-3">
+                                            <div class="alert alert-warning">
+                                                <h6><i class="fas fa-lightbulb me-2"></i>Tips:</h6>
+                                                <ul class="mb-0">
+                                                    <li>Linktree is recommended for multiple social accounts</li>
+                                                    <li>Only add links you actively use</li>
+                                                    <li>Make sure your profiles are professional</li>
+                                                    <li>Keep your social media updated</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Theme Selection Section -->
+                    <div class="content-section" id="theme-section" style="display: none;">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5><i class="fas fa-palette me-2"></i>Customize Your Theme</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <p class="text-muted">Choose from preset themes or create your own custom theme with full control over colors and fonts.</p>
+                                        
+                                        <!-- Preset Themes -->
+                                        <h6 class="mt-4 mb-3">Preset Themes</h6>
+                                        <div class="row g-3">
+                                            <div class="col-md-3 col-sm-4 col-6">
+                                                <div class="text-center">
+                                                    <div class="theme-preview" data-theme="default" title="Default Blue"></div>
+                                                    <small class="d-block mt-2">Default Blue</small>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-sm-4 col-6">
+                                                <div class="text-center">
+                                                    <div class="theme-preview" data-theme="custom" title="Custom Theme"></div>
+                                                    <small class="d-block mt-2">Custom Theme</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Custom Theme Controls -->
+                                        <div id="customThemeControls" style="display: none;">
+                                            <h6 class="mt-4 mb-3">Custom Theme Settings</h6>
+                                            
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <h6>Primary Colors</h6>
+                                                    <div class="color-group">
+                                                        <label>Primary Color</label>
+                                                        <input type="color" class="color-input" id="primaryColor" value="#007bff">
+                                                    </div>
+                                                    <div class="color-group">
+                                                        <label>Primary Hover</label>
+                                                        <input type="color" class="color-input" id="primaryHover" value="#0056b3">
+                                                    </div>
+                                                    <div class="color-group">
+                                                        <label>Secondary Color</label>
+                                                        <input type="color" class="color-input" id="secondaryColor" value="#6c757d">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <h6>Background Colors</h6>
+                                                    <div class="color-group">
+                                                        <label>Main Background</label>
+                                                        <input type="color" class="color-input" id="bgPrimary" value="#ffffff">
+                                                    </div>
+                                                    <div class="color-group">
+                                                        <label>Secondary Background</label>
+                                                        <input type="color" class="color-input" id="bgSecondary" value="#f8f9fa">
+                                                    </div>
+                                                    <div class="color-group">
+                                                        <label>Card Background</label>
+                                                        <input type="color" class="color-input" id="bgCard" value="#ffffff">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="row mt-3">
+                                                <div class="col-md-6">
+                                                    <h6>Text Colors</h6>
+                                                    <div class="color-group">
+                                                        <label>Primary Text</label>
+                                                        <input type="color" class="color-input" id="textPrimary" value="#212529">
+                                                    </div>
+                                                    <div class="color-group">
+                                                        <label>Secondary Text</label>
+                                                        <input type="color" class="color-input" id="textSecondary" value="#6c757d">
+                                                    </div>
+                                                    <div class="color-group">
+                                                        <label>Hero Text</label>
+                                                        <input type="color" class="color-input" id="textHero" value="#ffffff">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <h6>Hero Background</h6>
+                                                    <div class="color-group">
+                                                        <label>Hero Start Color</label>
+                                                        <input type="color" class="color-input" id="heroStart" value="#667eea">
+                                                    </div>
+                                                    <div class="color-group">
+                                                        <label>Hero End Color</label>
+                                                        <input type="color" class="color-input" id="heroEnd" value="#764ba2">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="row mt-3">
+                                                <div class="col-md-6">
+                                                    <h6>Font Settings</h6>
+                                                    <div class="font-group">
+                                                        <label>Font Family</label>
+                                                        <select class="font-select" id="fontFamily">
+                                                            <option value="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Segoe UI (Default)</option>
+                                                            <option value="'Arial', sans-serif">Arial</option>
+                                                            <option value="'Helvetica', sans-serif">Helvetica</option>
+                                                            <option value="'Times New Roman', serif">Times New Roman</option>
+                                                            <option value="'Georgia', serif">Georgia</option>
+                                                            <option value="'Verdana', sans-serif">Verdana</option>
+                                                            <option value="'Courier New', monospace">Courier New</option>
+                                                            <option value="'Trebuchet MS', sans-serif">Trebuchet MS</option>
+                                                            <option value="'Impact', sans-serif">Impact</option>
+                                                            <option value="'Comic Sans MS', cursive">Comic Sans MS</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="font-group">
+                                                        <label>Base Font Size</label>
+                                                        <select class="font-select" id="fontSize">
+                                                            <option value="0.875rem">Small (14px)</option>
+                                                            <option value="1rem" selected>Normal (16px)</option>
+                                                            <option value="1.125rem">Large (18px)</option>
+                                                            <option value="1.25rem">Extra Large (20px)</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <h6>Additional Colors</h6>
+                                                    <div class="color-group">
+                                                        <label>Border Color</label>
+                                                        <input type="color" class="color-input" id="borderColor" value="#dee2e6">
+                                                    </div>
+                                                    <div class="color-group">
+                                                        <label>Navbar Background</label>
+                                                        <input type="color" class="color-input" id="navbarBg" value="#343a40">
+                                                    </div>
+                                                    <div class="color-group">
+                                                        <label>Footer Background</label>
+                                                        <input type="color" class="color-input" id="footerBg" value="#343a40">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mt-4">
+                                            <button class="btn btn-primary" id="saveThemeBtn">
+                                                <i class="fas fa-save me-2"></i>Save Theme
+                                            </button>
+                                            <button class="btn btn-outline-secondary ms-2" id="previewThemeBtn">
+                                                <i class="fas fa-eye me-2"></i>Preview Theme
+                                            </button>
+                                            <button class="btn btn-outline-info ms-2" id="resetThemeBtn">
+                                                <i class="fas fa-undo me-2"></i>Reset to Default
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h6>Live Preview</h6>
+                                        <div class="theme-preview-card" id="themePreviewCard">
+                                            <div class="preview-hero">
+                                                <h5 class="preview-title">Your Name</h5>
+                                                <p class="preview-subtitle">Your Professional Title</p>
+                                            </div>
+                                            <div class="preview-content">
+                                                <div class="preview-section">
+                                                    <h6>About Me</h6>
+                                                    <p>This is how your portfolio will look with the selected theme.</p>
+                                                </div>
+                                                <div class="preview-section">
+                                                    <h6>Skills</h6>
+                                                    <span class="badge bg-primary me-1">Skill 1</span>
+                                                    <span class="badge bg-primary me-1">Skill 2</span>
+                                                </div>
+                                                <div class="preview-section">
+                                                    <button class="btn btn-primary btn-sm">Primary Button</button>
+                                                    <button class="btn btn-secondary btn-sm ms-2">Secondary Button</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Account Settings Section -->
+                    <div class="content-section" id="account-section" style="display: none;">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5><i class="fas fa-user-cog me-2"></i>Account Settings</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <h6>Account Information</h6>
+                                        <div class="card mb-4">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <p><strong>Username:</strong> <span id="currentUsernameDisplay"></span></p>
+                                                        <p><strong>Account Created:</strong> <span id="accountCreatedDate"></span></p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p><strong>Last Login:</strong> <span id="lastLoginDate"></span></p>
+                                                        <p><strong>Status:</strong> <span class="badge bg-success">Active</span></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <h6>Change Password</h6>
+                                        <div class="card mb-4">
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <label for="currentPassword" class="form-label">Current Password</label>
+                                                    <input type="password" class="form-control" id="currentPassword" placeholder="Enter current password">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="newPassword" class="form-label">New Password</label>
+                                                    <input type="password" class="form-control" id="newPassword" placeholder="Enter new password">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="confirmPassword" class="form-label">Confirm New Password</label>
+                                                    <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm new password">
+                                                </div>
+                                                <button class="btn btn-primary" id="changePasswordBtn">
+                                                    <i class="fas fa-key me-2"></i>Change Password
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <h6>Danger Zone</h6>
+                                        <div class="card border-danger">
+                                            <div class="card-header bg-danger text-white">
+                                                <h6 class="mb-0"><i class="fas fa-exclamation-triangle me-2"></i>Delete Account</h6>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="alert alert-warning">
+                                                    <h6><i class="fas fa-info-circle me-2"></i>Important Information:</h6>
+                                                    <ul class="mb-0">
+                                                        <li>This action will <strong>permanently disable</strong> your account</li>
+                                                        <li>You will <strong>not be able to log in</strong> after deletion</li>
+                                                        <li>Your portfolio will <strong>no longer be accessible</strong> to visitors</li>
+                                                        <li>Your data will be <strong>kept for 30 days</strong> for potential recovery</li>
+                                                        <li>This action <strong>cannot be undone</strong> easily</li>
+                                                    </ul>
+                                                </div>
+                                                
+                                                <div class="mb-3">
+                                                    <label for="deleteConfirmPassword" class="form-label">Confirm Password</label>
+                                                    <input type="password" class="form-control" id="deleteConfirmPassword" placeholder="Enter your password to confirm">
+                                                </div>
+                                                
+                                                <div class="mb-3">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="deleteConfirmCheck">
+                                                        <label class="form-check-label" for="deleteConfirmCheck">
+                                                            I understand that this action will permanently disable my account
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                
+                                                <button class="btn btn-danger" id="deleteAccountBtn" disabled>
+                                                    <i class="fas fa-trash me-2"></i>Delete My Account
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h6>Account Security</h6>
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h6>Security Tips</h6>
+                                                <ul class="small">
+                                                    <li>Use a strong, unique password</li>
+                                                    <li>Don't share your login credentials</li>
+                                                    <li>Log out from shared computers</li>
+                                                    <li>Keep your contact information updated</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mt-3">
+                                            <div class="alert alert-info">
+                                                <h6><i class="fas fa-shield-alt me-2"></i>Data Protection</h6>
+                                                <p class="small mb-0">Your personal data is protected and will only be used to provide portfolio services. We never share your information with third parties.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <!-- Experience Modal -->
+    <div class="modal fade" id="experienceModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add/Edit Experience</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="experienceForm">
+                        <input type="hidden" id="experienceIndex">
+                        <div class="mb-3">
+                            <label for="expTitle" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="expTitle" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="expCompany" class="form-label">Company</label>
+                            <input type="text" class="form-control" id="expCompany" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="expPeriod" class="form-label">Period</label>
+                            <input type="text" class="form-control" id="expPeriod" placeholder="e.g., 2023 - 2024">
+                        </div>
+                        <div class="mb-3">
+                            <label for="expDescription" class="form-label">Description</label>
+                            <textarea class="form-control" id="expDescription" rows="4" placeholder="Enter each point on a new line.&#10;&#10;Examples:&#10;• Led a team of 5 developers&#10;• Implemented new features using React&#10;• Improved performance by 40%&#10;• Collaborated with cross-functional teams"></textarea>
+                            <small class="form-text text-muted">Use bullet points (•) and line breaks to organize your achievements and responsibilities.</small>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="saveExperienceBtn">Save Experience</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Volunteering Modal -->
+    <div class="modal fade" id="volunteeringModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add/Edit Volunteering</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="volunteeringForm">
+                        <input type="hidden" id="volIndex">
+                        <div class="mb-3">
+                            <label for="volTitle" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="volTitle" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="volOrganization" class="form-label">Organization</label>
+                            <input type="text" class="form-control" id="volOrganization" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="volRole" class="form-label">Role (Optional)</label>
+                            <input type="text" class="form-control" id="volRole" placeholder="e.g., Team Leader, Volunteer">
+                        </div>
+                        <div class="mb-3">
+                            <label for="volAchievements" class="form-label">Achievements</label>
+                            <textarea class="form-control" id="volAchievements" rows="4" placeholder="Enter each achievement on a new line.&#10;&#10;Examples:&#10;• Organized events for 200+ participants&#10;• Led fundraising campaigns&#10;• Mentored new volunteers&#10;• Coordinated community outreach programs"></textarea>
+                            <small class="form-text text-muted">Use bullet points (•) and line breaks to highlight your key achievements and contributions.</small>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="saveVolunteeringBtn">Save Volunteering</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Modal -->
+    <div class="modal fade" id="projectModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add/Edit Project</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="projectForm">
+                        <input type="hidden" id="projectIndex">
+                        <input type="hidden" id="projectCategory">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="projName" class="form-label">Project Name</label>
+                                    <input type="text" class="form-control" id="projName" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="projDescription" class="form-label">Description</label>
+                                    <textarea class="form-control" id="projDescription" rows="6" placeholder="Describe your project in detail. You can include multiple paragraphs or bullet points.&#10;&#10;Tips:&#10;• Use bullet points for features&#10;• Include technical details&#10;• Mention challenges solved&#10;• Describe the impact or results"></textarea>
+                                    <small class="form-text text-muted">You can use line breaks to create paragraphs and bullet points (•) for lists.</small>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="projTechnologies" class="form-label">Technologies Used</label>
+                                    <textarea class="form-control" id="projTechnologies" rows="3" placeholder="Enter each technology on a new line or separate with commas"></textarea>
+                                    <small class="form-text text-muted">Examples: HTML, CSS, JavaScript, Python, React, Node.js</small>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="projFeatures" class="form-label">Key Features</label>
+                                    <textarea class="form-control" id="projFeatures" rows="3" placeholder="List the main features of your project"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="projLiveUrl" class="form-label">Live Demo URL</label>
+                                    <input type="url" class="form-control" id="projLiveUrl" placeholder="https://your-project.com">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="projRepoUrl" class="form-label">Source Code URL</label>
+                                    <input type="url" class="form-control" id="projRepoUrl" placeholder="https://github.com/username/project">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="projImages" class="form-label">Image Paths</label>
+                                    <textarea class="form-control" id="projImages" rows="4" placeholder="Enter each image path on a new line:&#10;assets/projects/image1.jpg&#10;assets/projects/image2.jpg&#10;assets/projects/image3.jpg"></textarea>
+                                    <small class="form-text text-muted">Upload images through Media Manager and copy the paths here</small>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="projMedia" class="form-label">Media Files (Videos, PDFs)</label>
+                                    <textarea class="form-control" id="projMedia" rows="2" placeholder="Enter media file paths on new lines"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="saveProjectBtn">Save Project</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Certificate Modal -->
+    <div class="modal fade" id="certificateModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add/Edit Certificate</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="certificateForm">
+                        <input type="hidden" id="certIndex">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="certName" class="form-label">Certificate Name</label>
+                                    <input type="text" class="form-control" id="certName" required placeholder="e.g., CCNAv7 Introduction to Networks">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="certIssuer" class="form-label">Issuing Organization</label>
+                                    <input type="text" class="form-control" id="certIssuer" required placeholder="e.g., Cisco Academy, Microsoft, Google">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="certDate" class="form-label">Issue Date</label>
+                                    <input type="text" class="form-control" id="certDate" placeholder="e.g., June 2024, December 2023">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="certCredentialId" class="form-label">Credential ID (Optional)</label>
+                                    <input type="text" class="form-control" id="certCredentialId" placeholder="Certificate or license number">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="certDescription" class="form-label">Description</label>
+                                    <textarea class="form-control" id="certDescription" rows="4" placeholder="Describe what this certificate covers and its significance"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="certImage" class="form-label">Certificate Image Path</label>
+                                    <input type="text" class="form-control" id="certImage" placeholder="assets/certificates/certificate.png">
+                                    <small class="form-text text-muted">Upload image through Media Manager and copy the path here</small>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="certPdfUrl" class="form-label">PDF Certificate URL</label>
+                                    <input type="text" class="form-control" id="certPdfUrl" placeholder="assets/certificates/certificate.pdf">
+                                    <small class="form-text text-muted">Upload PDF through Media Manager and copy the path here</small>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="certVerifyUrl" class="form-label">Verification URL (Optional)</label>
+                                    <input type="url" class="form-control" id="certVerifyUrl" placeholder="https://verify.certificate.com/your-id">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="saveCertificateBtn">Save Certificate</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- File Upload Modal -->
+    <div class="modal fade" id="uploadModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Upload Progress</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="progress mb-3">
+                        <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                    </div>
+                    <div id="uploadStatus"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/library/js/bootstrap.bundle.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

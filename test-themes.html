@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Theme Customization Test</title>
+    <link href="assets/library/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/themes.css" rel="stylesheet">
+    <style>
+        .theme-test-section {
+            padding: 40px 0;
+            margin: 20px 0;
+            border-radius: 10px;
+            border: 2px solid var(--border-color, #dee2e6);
+            background: var(--bg-primary, white);
+            color: var(--text-primary, #212529);
+        }
+        .theme-test-hero {
+            background: var(--bg-hero, linear-gradient(135deg, #007bff 0%, #0056b3 100%));
+            color: var(--text-hero, white);
+            padding: 60px 0;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .theme-test-card {
+            background: var(--bg-card, white);
+            border: 1px solid var(--border-color, #dee2e6);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px var(--shadow-card, rgba(0, 0, 0, 0.1));
+            color: var(--text-primary, #212529);
+        }
+        .theme-test-button {
+            background: var(--btn-primary-bg, #007bff);
+            color: var(--text-white, white);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 5px;
+            cursor: pointer;
+            font-family: var(--font-family, inherit);
+        }
+        .theme-test-button:hover {
+            background: var(--btn-primary-hover, #0056b3);
+        }
+        .theme-customizer {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            max-width: 350px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .color-group {
+            margin-bottom: 15px;
+        }
+        .color-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 12px;
+            font-weight: 500;
+            color: #666;
+        }
+        .color-input {
+            width: 100%;
+            height: 35px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .font-group {
+            margin-bottom: 15px;
+        }
+        .font-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 12px;
+            font-weight: 500;
+            color: #666;
+        }
+        .font-select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .preset-buttons {
+            margin-bottom: 20px;
+        }
+        .preset-btn {
+            padding: 5px 10px;
+            margin: 2px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .preset-btn:hover {
+            background: #f8f9fa;
+        }
+        .preset-btn.active {
+            background: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="theme-customizer">
+        <h6>Full Theme Customization</h6>
+        
+        <!-- Preset Themes -->
+        <div class="preset-buttons">
+            <button class="preset-btn" onclick="applyPresetTheme('default')">Default</button>
+            <button class="preset-btn" onclick="applyPresetTheme('custom')">Custom</button>
+        </div>
+        
+        <!-- Primary Colors -->
+        <h6 style="font-size: 14px; margin-bottom: 10px;">Primary Colors</h6>
+        <div class="color-group">
+            <label>Primary Color</label>
+            <input type="color" class="color-input" id="primaryColor" value="#007bff" onchange="updateCustomTheme()">
+        </div>
+        <div class="color-group">
+            <label>Primary Hover</label>
+            <input type="color" class="color-input" id="primaryHover" value="#0056b3" onchange="updateCustomTheme()">
+        </div>
+        <div class="color-group">
+            <label>Secondary Color</label>
+            <input type="color" class="color-input" id="secondaryColor" value="#6c757d" onchange="updateCustomTheme()">
+        </div>
+        
+        <!-- Background Colors -->
+        <h6 style="font-size: 14px; margin-bottom: 10px;">Background Colors</h6>
+        <div class="color-group">
+            <label>Main Background</label>
+            <input type="color" class="color-input" id="bgPrimary" value="#ffffff" onchange="updateCustomTheme()">
+        </div>
+        <div class="color-group">
+            <label>Secondary Background</label>
+            <input type="color" class="color-input" id="bgSecondary" value="#f8f9fa" onchange="updateCustomTheme()">
+        </div>
+        <div class="color-group">
+            <label>Card Background</label>
+            <input type="color" class="color-input" id="bgCard" value="#ffffff" onchange="updateCustomTheme()">
+        </div>
+        
+        <!-- Text Colors -->
+        <h6 style="font-size: 14px; margin-bottom: 10px;">Text Colors</h6>
+        <div class="color-group">
+            <label>Primary Text</label>
+            <input type="color" class="color-input" id="textPrimary" value="#212529" onchange="updateCustomTheme()">
+        </div>
+        <div class="color-group">
+            <label>Secondary Text</label>
+            <input type="color" class="color-input" id="textSecondary" value="#6c757d" onchange="updateCustomTheme()">
+        </div>
+        <div class="color-group">
+            <label>Hero Text</label>
+            <input type="color" class="color-input" id="textHero" value="#ffffff" onchange="updateCustomTheme()">
+        </div>
+        
+        <!-- Hero Background -->
+        <h6 style="font-size: 14px; margin-bottom: 10px;">Hero Background</h6>
+        <div class="color-group">
+            <label>Hero Start Color</label>
+            <input type="color" class="color-input" id="heroStart" value="#667eea" onchange="updateCustomTheme()">
+        </div>
+        <div class="color-group">
+            <label>Hero End Color</label>
+            <input type="color" class="color-input" id="heroEnd" value="#764ba2" onchange="updateCustomTheme()">
+        </div>
+        
+        <!-- Font Settings -->
+        <h6 style="font-size: 14px; margin-bottom: 10px;">Font Settings</h6>
+        <div class="font-group">
+            <label>Font Family</label>
+            <select class="font-select" id="fontFamily" onchange="updateCustomTheme()">
+                <option value="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Segoe UI (Default)</option>
+                <option value="'Arial', sans-serif">Arial</option>
+                <option value="'Helvetica', sans-serif">Helvetica</option>
+                <option value="'Times New Roman', serif">Times New Roman</option>
+                <option value="'Georgia', serif">Georgia</option>
+                <option value="'Verdana', sans-serif">Verdana</option>
+                <option value="'Courier New', monospace">Courier New</option>
+                <option value="'Trebuchet MS', sans-serif">Trebuchet MS</option>
+                <option value="'Impact', sans-serif">Impact</option>
+                <option value="'Comic Sans MS', cursive">Comic Sans MS</option>
+            </select>
+        </div>
+        <div class="font-group">
+            <label>Base Font Size</label>
+            <select class="font-select" id="fontSize" onchange="updateCustomTheme()">
+                <option value="0.875rem">Small (14px)</option>
+                <option value="1rem" selected>Normal (16px)</option>
+                <option value="1.125rem">Large (18px)</option>
+                <option value="1.25rem">Extra Large (20px)</option>
+            </select>
+        </div>
+        
+        <!-- Additional Colors -->
+        <h6 style="font-size: 14px; margin-bottom: 10px;">Additional Colors</h6>
+        <div class="color-group">
+            <label>Border Color</label>
+            <input type="color" class="color-input" id="borderColor" value="#dee2e6" onchange="updateCustomTheme()">
+        </div>
+        <div class="color-group">
+            <label>Navbar Background</label>
+            <input type="color" class="color-input" id="navbarBg" value="#343a40" onchange="updateCustomTheme()">
+        </div>
+        <div class="color-group">
+            <label>Footer Background</label>
+            <input type="color" class="color-input" id="footerBg" value="#343a40" onchange="updateCustomTheme()">
+        </div>
+        
+        <div style="margin-top: 20px;">
+            <button class="btn btn-primary btn-sm" onclick="resetToDefault()">Reset to Default</button>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-5">Full Theme Customization Test</h1>
+        
+        <div class="theme-test-hero">
+            <h2>Hero Section</h2>
+            <p>This is how the hero section will look with your custom theme</p>
+            <button class="theme-test-button">Call to Action</button>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="theme-test-card">
+                    <h4>Card Example</h4>
+                    <p>This is a sample card showing how content will appear with your custom theme. All colors, fonts, and styling are fully customizable.</p>
+                    <button class="theme-test-button">Primary Button</button>
+                    <button class="btn btn-secondary ms-2">Secondary Button</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="theme-test-card">
+                    <h4>Skills Section</h4>
+                    <span class="badge bg-primary me-1">JavaScript</span>
+                    <span class="badge bg-primary me-1">CSS</span>
+                    <span class="badge bg-primary me-1">HTML</span>
+                    <span class="badge bg-primary me-1">PHP</span>
+                    <p class="mt-3">Badges and other elements will also follow your custom theme.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="theme-test-section">
+            <h3>About Section</h3>
+            <p>This section demonstrates how text and content will appear with your selected theme. The colors, backgrounds, fonts, and overall styling will change based on your customization choices.</p>
+            <p>You have complete control over:</p>
+            <ul>
+                <li>Primary and secondary colors</li>
+                <li>All background colors</li>
+                <li>Text colors for different elements</li>
+                <li>Hero section gradient colors</li>
+                <li>Font family and size</li>
+                <li>Border and shadow colors</li>
+                <li>Navigation and footer colors</li>
+            </ul>
+        </div>
+        
+        <div class="theme-test-section">
+            <h3>Projects Section</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="theme-test-card">
+                        <h5>Project 1</h5>
+                        <p>Description of project 1 with your custom theme applied.</p>
+                        <button class="theme-test-button">View Project</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="theme-test-card">
+                        <h5>Project 2</h5>
+                        <p>Description of project 2 with your custom theme applied.</p>
+                        <button class="theme-test-button">View Project</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="theme-test-card">
+                        <h5>Project 3</h5>
+                        <p>Description of project 3 with your custom theme applied.</p>
+                        <button class="theme-test-button">View Project</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="theme-test-section">
+            <h3>Forms and Inputs</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="theme-test-card">
+                        <h5>Contact Form</h5>
+                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <input type="text" class="form-control" placeholder="Your name">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" placeholder="your@email.com">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Message</label>
+                            <textarea class="form-control" rows="3" placeholder="Your message"></textarea>
+                        </div>
+                        <button class="theme-test-button">Send Message</button>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="theme-test-card">
+                        <h5>Navigation Example</h5>
+                        <nav class="navbar navbar-expand-lg" style="background-color: var(--bg-navbar, #343a40);">
+                            <div class="container-fluid">
+                                <a class="navbar-brand" href="#" style="color: var(--text-white, white);">Brand</a>
+                                <div class="navbar-nav">
+                                    <a class="nav-link" href="#" style="color: var(--text-white, white);">Home</a>
+                                    <a class="nav-link" href="#" style="color: var(--text-white, white);">About</a>
+                                    <a class="nav-link" href="#" style="color: var(--text-white, white);">Contact</a>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentTheme = 'default';
+        
+        function applyPresetTheme(themeName) {
+            currentTheme = themeName;
+            
+            // Update active button
+            document.querySelectorAll('.preset-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Apply theme
+            document.documentElement.setAttribute('data-theme', themeName);
+            
+            if (themeName === 'custom') {
+                updateCustomTheme();
+            }
+        }
+        
+        function updateCustomTheme() {
+            if (currentTheme !== 'custom') return;
+            
+            const root = document.documentElement;
+            
+            // Get all values
+            const primaryColor = document.getElementById('primaryColor').value;
+            const primaryHover = document.getElementById('primaryHover').value;
+            const secondaryColor = document.getElementById('secondaryColor').value;
+            const bgPrimary = document.getElementById('bgPrimary').value;
+            const bgSecondary = document.getElementById('bgSecondary').value;
+            const bgCard = document.getElementById('bgCard').value;
+            const textPrimary = document.getElementById('textPrimary').value;
+            const textSecondary = document.getElementById('textSecondary').value;
+            const textHero = document.getElementById('textHero').value;
+            const heroStart = document.getElementById('heroStart').value;
+            const heroEnd = document.getElementById('heroEnd').value;
+            const borderColor = document.getElementById('borderColor').value;
+            const navbarBg = document.getElementById('navbarBg').value;
+            const footerBg = document.getElementById('footerBg').value;
+            const fontFamily = document.getElementById('fontFamily').value;
+            const fontSize = document.getElementById('fontSize').value;
+            
+            // Apply to root
+            root.style.setProperty('--primary-color', primaryColor);
+            root.style.setProperty('--primary-hover', primaryHover);
+            root.style.setProperty('--secondary-color', secondaryColor);
+            root.style.setProperty('--bg-primary', bgPrimary);
+            root.style.setProperty('--bg-secondary', bgSecondary);
+            root.style.setProperty('--bg-card', bgCard);
+            root.style.setProperty('--text-primary', textPrimary);
+            root.style.setProperty('--text-secondary', textSecondary);
+            root.style.setProperty('--text-hero', textHero);
+            root.style.setProperty('--bg-hero', `linear-gradient(135deg, ${heroStart} 0%, ${heroEnd} 100%)`);
+            root.style.setProperty('--border-color', borderColor);
+            root.style.setProperty('--bg-navbar', navbarBg);
+            root.style.setProperty('--bg-footer', footerBg);
+            root.style.setProperty('--font-family', fontFamily);
+            root.style.setProperty('--font-size-base', fontSize);
+        }
+        
+        function resetToDefault() {
+            document.getElementById('primaryColor').value = '#007bff';
+            document.getElementById('primaryHover').value = '#0056b3';
+            document.getElementById('secondaryColor').value = '#6c757d';
+            document.getElementById('bgPrimary').value = '#ffffff';
+            document.getElementById('bgSecondary').value = '#f8f9fa';
+            document.getElementById('bgCard').value = '#ffffff';
+            document.getElementById('textPrimary').value = '#212529';
+            document.getElementById('textSecondary').value = '#6c757d';
+            document.getElementById('textHero').value = '#ffffff';
+            document.getElementById('heroStart').value = '#667eea';
+            document.getElementById('heroEnd').value = '#764ba2';
+            document.getElementById('borderColor').value = '#dee2e6';
+            document.getElementById('navbarBg').value = '#343a40';
+            document.getElementById('footerBg').value = '#343a40';
+            document.getElementById('fontFamily').value = "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
+            document.getElementById('fontSize').value = '1rem';
+            
+            updateCustomTheme();
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            applyPresetTheme('default');
+        });
+    </script>
+</body>
+</html>

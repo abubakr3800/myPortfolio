@@ -1,0 +1,36 @@
+{
+    "personal": {
+        "name": "Seham Mohsen Ahmed",
+        "title": "Laravel Web development ",
+        "location": "Mansoura, Egypt ",
+        "phone": "01032893467",
+        "email": "sehammohsen84@gmail.com",
+        "objective": "Enthusiastic Software Developer with solid knowledge of PHP, Laravel, and database design, eager to contribute to real-world projects and grow within a professional development team.",
+        "cv": "data\/users\/Seham_Mohsen\/documents\/68d7024e185c9_Resume.pdf"
+    },
+    "education": {
+        "degree": "Bachelor of Computer Science",
+        "institution": "Mansoura University",
+        "year": "2026"
+    },
+    "experience": [],
+    "volunteering": [],
+    "certificates": [],
+    "skills": {
+        "technical": [],
+        "teaching": [],
+        "languages": []
+    },
+    "projects": {
+        "electronics": [],
+        "web": [],
+        "trainings": []
+    },
+    "social": {
+        "individual": {
+            "github": "https://github.com/sehammohsen",
+            "linkedin": "https://linkedin.com/in/sehammohsen",
+            "facebook": "https://facebook.com/sehammohsen"
+        }
+    }
+}

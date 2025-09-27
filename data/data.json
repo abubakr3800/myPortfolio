@@ -1,0 +1,371 @@
+{
+  "personal": {
+    "name": "Ahmed Mohamed Abubakr",
+    "title": "R&D Engineer | Electronics & Communications",
+    "location": "Giza, Egypt",
+    "phone": "01113284597",
+    "email": "ahmed.mo.abubakr@gmail.com",
+    "objective": "To obtain an R&D Engineer position where I can apply my academic background in electronics, hands-on experience in analog IC layout design, and practical skills in tools such as Cadence, Proteus, and Altium to contribute to innovation and development in electronic systems.",
+    "cv":"assets/cv/ahmed-mohamed-abubakr.pdf"
+  },
+  "education": {
+    "degree": "Bachelor of Electronics and Communications Engineering",
+    "institution": "Sohag University | Faculty of engineering",
+    "year": "2023"
+  },
+  "experience": [
+    {
+      "title": "Teaching Assistant",
+      "company": "Higher Engineering Institute",
+      "period": "2023 - 2024",
+      "description": [
+        "Delivered lab sessions and tutorials for Electronics, Electromagnetic Waves, and Computer Interfacing courses.",
+        "Assisted 50+ students with circuit design and simulations, improving average lab scores."
+      ]
+    },
+    {
+      "title": "Trainer",
+      "company": "Creativa Sohag | web development sessions",
+      "period": "Mar 2024",
+      "description": [
+        "Trained around 200 trainees at two years",
+        "Subjects of trainings: Introduction to programming, How to become a frontend developer, How to be a backend developer, How to be freelancer at web development field, How to compute a website."
+      ]
+    },
+    {
+      "title": "Graduation project",
+      "company": "Sponsored by Si-Vision",
+      "period": "2022 - 2023",
+      "description": [
+        "Designed and validated analog IC layouts.",
+        "Achieved 95% excellence rating; skills directly applicable to teaching VLSI/circuit design courses."
+      ]
+    }
+  ],
+  "volunteering": [
+    {
+      "title": "Volunteer",
+      "organization": "Technology Innovation & Entrepreneurship Center",
+      "role": "TIEC Innovation Ambassador"
+    },
+    {
+      "title": "Leader",
+      "organization": "SMART student activity",
+      "achievements": [
+        "Best member at 2019, best leader at 2020",
+        "Whole team leader 2021",
+        "Talk about team at ITI 2020, talk about web development in ITI 2021"
+      ]
+    }
+  ],
+  "certificates": [
+    {
+      "name": "CCNAv7 Introduction to Networks",
+      "issuer": "Cisco Academy",
+      "date": "June 2024",
+      "description": "Comprehensive networking fundamentals including network protocols, architecture, and security",
+      "pdfUrl": "assets/certificates/AhmedMohamed Abubakr-G3CCNAv7 Introdu-certificate.pdf",
+      "image": "assets/certificates/ccnaitn__1_.png"
+    },
+    {
+      "name": "CCNAv7 Switching, Routing, and Wireless Essentials",
+      "issuer": "Cisco Academy", 
+      "date": "June 2024",
+      "description": "Advanced switching, routing, and wireless networking technologies",
+      "pdfUrl": "assets/certificates/AhmedMohamed Abubakr-G3 - CCNAv7 Swit-certificate (1).pdf",
+      "image": "assets/certificates/ccnasrwe__1_.png"
+    },
+    {
+      "name": "CCNAv7 Enterprise Networking, Security, and Automation",
+      "issuer": "Cisco Academy",
+      "date": "June 2024", 
+      "description": "Enterprise-level networking, security protocols, and network automation",
+      "pdfUrl": "assets/certificates/AhmedMohamed Abubakr-G3 - Introductio-certificate.pdf",
+      "image": "assets/certificates/ccnasrwe__1_.png"
+    },
+    {
+      "name": "NDG Linux Unhatched",
+      "issuer": "Cisco Academy",
+      "date": "June 2024",
+      "description": "Linux operating system fundamentals and command line proficiency",
+      "pdfUrl": "assets/certificates/AhmedMohamed Abubakr-NDG Linux Unh-certificate (1).pdf", 
+      "image": "assets/certificates/ccnasrwe__1_.png"
+    },
+    {
+      "name": "Cybersecurity Essentials",
+      "issuer": "Cisco Academy",
+      "date": "June 2024",
+      "description": "Core cybersecurity concepts, threats, and defense mechanisms",
+      "pdfUrl": "assets/certificates/AhmedMohamed Abubakr-G3 - Cybersecuri-certificate.pdf",
+      "image": "assets/certificates/cyber-essentials.png"
+    },
+    {
+      "name": "Entrepreneurship",
+      "issuer": "Cisco Academy", 
+      "date": "June 2024",
+      "description": "Business development, innovation, and entrepreneurial skills",
+      "pdfUrl": "assets/certificates/AhmedMohamed Abubakr-G3_Entrepreneurs-certificate (1).pdf",
+      "image": "assets/certificates/ccnasrwe__1_.png"
+    }
+  ],
+  "skills": {
+    "technical": [
+      "Cadence",
+      "Linux",
+      "Python",
+      "MATLAB/Simulink",
+      "Proficient in PCB design and circuit simulation using Proteus and Altium Designer",
+      "CCNA Networking",
+      "Cybersecurity",
+      "Linux Administration"
+    ],
+    "teaching": [
+      "Curriculum development",
+      "Student mentoring"
+    ],
+    "languages": [
+      "Fluent English (written/spoken)"
+    ]
+  },
+  "projects": {
+    "electronics": [
+      {
+        "name": "Hamming 47 Transmitter",
+        "description": "Digital communication system transmitter implementing Hamming (4,7) error correction code",
+        "image": "assets/projects/electronics/hamming 47 transmitter/hamming 47  transmitter.png",
+        "images": ["assets/projects/electronics/hamming 47 transmitter/hamming 47  transmitter.png"],
+        "technologies": ["Digital Electronics", "Error Correction", "Communication Systems"]
+      },
+      {
+        "name": "Hamming 74 Receiver",
+        "description": "Digital communication system receiver implementing Hamming (4,7) error correction code",
+        "image": "assets/projects/electronics/hamming 74 reciever/hamming 74 reciever.png",
+        "images": ["assets/projects/electronics/hamming 74 reciever/hamming 74 reciever.png"],
+        "technologies": ["Digital Electronics", "Error Correction", "Communication Systems"]
+      },
+      {
+        "name": "Hamming 74 Receiver + 2BCD",
+        "description": "Advanced digital system combining Hamming (7,4) error correction with BCD encoding",
+        "image": "assets/projects/electronics/hamming 74 reciever/hamming 74 reciever +2bcd.png",
+        "images": ["assets/projects/electronics/hamming 74 reciever/hamming 74 reciever +2bcd.png"],
+        "technologies": ["Digital Electronics", "Error Correction", "BCD Encoding", "Communication Systems"]
+      },
+      {
+        "name": "Huffman Coding Visualizer",
+        "description": "A Python-based Huffman coding visualizer and compressor. Includes a demo video and source code.",
+        "image": "assets/projects/electronics/haufmann/huffman.png",
+        "images": ["assets/projects/electronics/haufmann/huffman.png"],
+        "repoUrl": "https://github.com/abubakr3800/huffman",
+        "liveUrl": "https://abubakr3800.github.io/huffman",
+        "media": [
+          "assets/projects/electronics/haufmann/21.05.2023_15.47.50_REC.mp4"
+        ],
+        "technologies": ["Python", "Data Compression", "Huffman Coding", "Algorithm Visualization"]
+      },
+      {
+        "name": "Laser Cutting (Digital Fabrication Training)",
+        "description": "Digital Fabrication Training | TIEC (MCIT) – in collaboration with EME & Orange | 2024\nHands-on training on CNC milling, 3D printing, and CO₂ laser cutting machines:\n• Operated Roland MDX-50 CNC machine to design mini circuit prototyping using SRP Player.\n• Used Prusa i3 MK3S+ 3D printer with PrusaSlicer to print functional small prototypes.\n• Engraved and cut acrylic and wood using CMA960 CO₂ laser cutter via CorelDRAW and RDWorks.",
+        "image": "assets/projects/electronics/laser/474454597_615981014154881_8354830801953897207_n.jpg",
+        "images": [
+          "assets/projects/electronics/laser/474454597_615981014154881_8354830801953897207_n.jpg",
+          "assets/projects/electronics/laser/474665199_615980774154905_8586200859831799244_n.jpg",
+          "assets/projects/electronics/laser/474206916_615981000821549_1438373154996348925_n.jpg",
+          "assets/projects/electronics/laser/WhatsApp Image 2025-07-11 at 5.21.25 PM.jpeg",
+          "assets/projects/electronics/laser/WhatsApp Image 2025-07-11 at 5.21.10 PM.jpeg"
+        ],
+        "media": [
+          "assets/projects/electronics/laser/474454597_615981014154881_8354830801953897207_n.jpg",
+          "assets/projects/electronics/laser/474665199_615980774154905_8586200859831799244_n.jpg",
+          "assets/projects/electronics/laser/474206916_615981000821549_1438373154996348925_n.jpg",
+          "assets/projects/electronics/laser/WhatsApp Image 2025-07-11 at 5.21.25 PM.jpeg",
+          "assets/projects/electronics/laser/WhatsApp Image 2025-07-11 at 5.21.10 PM.jpeg",
+          "assets/projects/electronics/laser/WhatsApp Video 2025-07-11 at 5.21.25 PM.mp4"
+        ],
+        "technologies": ["CO₂ Laser Cutter", "CorelDRAW", "RDWorks", "Digital Fabrication"]
+      },
+      {
+        "name": "CNC Milling (Digital Fabrication Training)",
+        "description": "Digital Fabrication Training | TIEC (MCIT) – in collaboration with EME & Orange | 2024\nHands-on training on CNC milling, 3D printing, and CO₂ laser cutting machines:\n• Operated Roland MDX-50 CNC machine to design mini circuit prototyping using SRP Player.\n• Used Prusa i3 MK3S+ 3D printer with PrusaSlicer to print functional small prototypes.\n• Engraved and cut acrylic and wood using CMA960 CO₂ laser cutter via CorelDRAW and RDWorks.",
+        "image": "assets/projects/electronics/cnc/WhatsApp Image 2025-07-11 at 5.20.28 PM (1).jpeg",
+        "images": [
+          "assets/projects/electronics/cnc/WhatsApp Image 2025-07-11 at 5.20.28 PM (1).jpeg",
+          "assets/projects/electronics/cnc/WhatsApp Image 2025-07-11 at 5.20.28 PM.jpeg",
+          "assets/projects/electronics/cnc/WhatsApp Image 2025-07-11 at 5.20.26 PM.jpeg",
+          "assets/projects/electronics/cnc/WhatsApp Image 2025-07-11 at 1.39.39 PM (1).jpeg",
+          "assets/projects/electronics/cnc/WhatsApp Image 2025-07-11 at 1.39.39 PM.jpeg",
+          "assets/projects/electronics/cnc/WhatsApp Image 2025-07-11 at 1.39.38 PM (3).jpeg",
+          "assets/projects/electronics/cnc/WhatsApp Image 2025-07-11 at 1.39.38 PM (2).jpeg",
+          "assets/projects/electronics/cnc/WhatsApp Image 2025-07-11 at 1.39.38 PM (1).jpeg",
+          "assets/projects/electronics/cnc/WhatsApp Image 2025-07-11 at 1.39.37 PM.jpeg",
+          "assets/projects/electronics/cnc/WhatsApp Image 2025-07-11 at 1.39.38 PM.jpeg"
+        ],
+        "media": [
+          "assets/projects/electronics/cnc/WhatsApp Image 2025-07-11 at 5.20.28 PM (1).jpeg",
+          "assets/projects/electronics/cnc/WhatsApp Image 2025-07-11 at 5.20.28 PM.jpeg",
+          "assets/projects/electronics/cnc/WhatsApp Image 2025-07-11 at 5.20.26 PM.jpeg",
+          "assets/projects/electronics/cnc/WhatsApp Image 2025-07-11 at 1.39.39 PM (1).jpeg",
+          "assets/projects/electronics/cnc/WhatsApp Image 2025-07-11 at 1.39.39 PM.jpeg",
+          "assets/projects/electronics/cnc/WhatsApp Image 2025-07-11 at 1.39.38 PM (3).jpeg",
+          "assets/projects/electronics/cnc/WhatsApp Image 2025-07-11 at 1.39.38 PM (2).jpeg",
+          "assets/projects/electronics/cnc/WhatsApp Image 2025-07-11 at 1.39.38 PM (1).jpeg",
+          "assets/projects/electronics/cnc/WhatsApp Image 2025-07-11 at 1.39.37 PM.jpeg",
+          "assets/projects/electronics/cnc/WhatsApp Image 2025-07-11 at 1.39.38 PM.jpeg",
+          "assets/projects/electronics/cnc/WhatsApp Video 2025-07-11 at 1.39.38 PM.mp4",
+          "assets/projects/electronics/cnc/WhatsApp Video 2025-07-11 at 1.39.37 PM (1).mp4",
+          "assets/projects/electronics/cnc/WhatsApp Video 2025-07-11 at 1.39.37 PM.mp4",
+          "assets/projects/electronics/cnc/WhatsApp Video 2025-07-11 at 1.38.43 PM.mp4"
+        ],
+        "technologies": ["CNC Milling", "Roland MDX-50", "SRP Player", "Digital Fabrication"]
+      },
+      {
+        "name": "3D Printing (Digital Fabrication Training)",
+        "description": "Digital Fabrication Training | TIEC (MCIT) – in collaboration with EME & Orange | 2024\nHands-on training on CNC milling, 3D printing, and CO₂ laser cutting machines:\n• Operated Roland MDX-50 CNC machine to design mini circuit prototyping using SRP Player.\n• Used Prusa i3 MK3S+ 3D printer with PrusaSlicer to print functional small prototypes.\n• Engraved and cut acrylic and wood using CMA960 CO₂ laser cutter via CorelDRAW and RDWorks.",
+        "image": "assets/projects/electronics/3d/WhatsApp Image 2025-07-11 at 1.39.45 PM.jpeg",
+        "images": [
+          "assets/projects/electronics/3d/WhatsApp Image 2025-07-11 at 1.39.45 PM.jpeg",
+          "assets/projects/electronics/3d/WhatsApp Image 2025-07-11 at 1.39.43 PM.jpeg"
+        ],
+        "media": [
+          "assets/projects/electronics/3d/WhatsApp Image 2025-07-11 at 1.39.45 PM.jpeg",
+          "assets/projects/electronics/3d/WhatsApp Image 2025-07-11 at 1.39.43 PM.jpeg",
+          "assets/projects/electronics/3d/WhatsApp Video 2025-07-11 at 1.39.44 PM.mp4",
+          "assets/projects/electronics/3d/WhatsApp Video 2025-07-11 at 1.39.41 PM.mp4"
+        ],
+        "technologies": ["3D Printing", "Prusa i3 MK3S+", "PrusaSlicer", "Digital Fabrication"]
+      },
+      {
+        "name": "Handmade PCB",
+        "description": "Handmade PCB design and fabrication. Personal project involving manual etching, drilling, and soldering of custom circuit boards.",
+        "image": "assets/projects/electronics/pcb/WhatsApp Image 2025-07-11 at 1.39.48 PM.jpeg",
+        "images": [
+          "assets/projects/electronics/pcb/WhatsApp Image 2025-07-11 at 1.39.48 PM.jpeg",
+          "assets/projects/electronics/pcb/WhatsApp Image 2025-07-11 at 1.39.47 PM.jpeg",
+          "assets/projects/electronics/pcb/WhatsApp Image 2025-07-11 at 1.39.46 PM.jpeg"
+        ],
+        "media": [
+          "assets/projects/electronics/pcb/WhatsApp Image 2025-07-11 at 1.39.48 PM.jpeg",
+          "assets/projects/electronics/pcb/WhatsApp Image 2025-07-11 at 1.39.47 PM.jpeg",
+          "assets/projects/electronics/pcb/WhatsApp Image 2025-07-11 at 1.39.46 PM.jpeg"
+        ],
+        "technologies": ["PCB Design", "Handmade PCB", "Etching", "Soldering"]
+      },
+      {
+        "name": "Buck Converter",
+        "description": "Design and simulation of a DC-DC buck converter. Includes schematic screenshots and project documentation.",
+        "image": "assets/projects/electronics/buck/Screenshot 2025-07-11 175511.png",
+        "images": [
+          "assets/projects/electronics/buck/Screenshot 2025-07-11 175622.png",
+          "assets/projects/electronics/buck/Screenshot 2025-07-11 175549.png",
+          "assets/projects/electronics/buck/Screenshot 2025-07-11 175511.png"
+        ],
+        "media": [
+          "assets/projects/electronics/buck/Screenshot 2025-07-11 175622.png",
+          "assets/projects/electronics/buck/Screenshot 2025-07-11 175549.png",
+          "assets/projects/electronics/buck/Screenshot 2025-07-11 175511.png",
+          "assets/projects/electronics/buck/buck2.pdf"
+        ],
+        "technologies": ["DC-DC Converter", "Power Electronics", "Simulation", "Circuit Design"]
+      }
+    ],
+    "web": [
+      {
+        "name": "Akar",
+        "description": "Modern web application with responsive design and interactive features",
+        "liveUrl": "https://area-web.github.io/ahmed2/",
+        "images": [
+          "assets/projects/web/akar/akar.jpg",
+          "assets/projects/web/akar/akar_2.jpg",
+          "assets/projects/web/akar/akar_3.jpg",
+          "assets/projects/web/akar/akar_4.jpg",
+          "assets/projects/web/akar/akar_5.jpg",
+          "assets/projects/web/akar/akar_6.jpg",
+          "assets/projects/web/akar/akar_7.jpg",
+          "assets/projects/web/akar/akar_8.jpg"
+        ],
+        "technologies": ["HTML", "CSS", "JavaScript", "Responsive Design"]
+      },
+      {
+        "name": "Edu",
+        "description": "Educational platform with modern UI/UX design",
+        "liveUrl": "https://area-web.github.io/edu/",
+        "images": [
+          "assets/projects/web/edu/edu.jpg",
+          "assets/projects/web/edu/edu_2.jpg",
+          "assets/projects/web/edu/edu_3.jpg",
+          "assets/projects/web/edu/edu_4.jpg",
+          "assets/projects/web/edu/edu_5.jpg",
+          "assets/projects/web/edu/edu_6.jpg"
+        ],
+        "technologies": ["HTML", "CSS", "JavaScript", "Educational Platform"]
+      },
+      {
+        "name": "Min-Jaded",
+        "description": "Creative web project showcasing modern design principles",
+        "liveUrl": "https://min-jaded.ct.ws/",
+        "images": [
+          "assets/projects/web/min-jaded/1.png",
+          "assets/projects/web/min-jaded/2.png",
+          "assets/projects/web/min-jaded/3.png",
+          "assets/projects/web/min-jaded/4.png",
+          "assets/projects/web/min-jaded/5.png",
+          "assets/projects/web/min-jaded/6.png",
+          "assets/projects/web/min-jaded/7.png",
+          "assets/projects/web/min-jaded/8.png",
+          "assets/projects/web/min-jaded/9.png",
+          "assets/projects/web/min-jaded/10.png",
+          "assets/projects/web/min-jaded/11.png"
+        ],
+        "technologies": ["HTML", "CSS", "JavaScript", "Creative Design"]
+      },
+      {
+        "name": "Hekayat Salma",
+        "description": "Elegant web application with sophisticated design elements",
+        "liveUrl": "http://hekayat-salma.epizy.com/",
+        "images": [
+          "assets/projects/web/salma/salma.jpg",
+          "assets/projects/web/salma/salma_2.jpg",
+          "assets/projects/web/salma/salma_3.jpg",
+          "assets/projects/web/salma/salma_4.jpg",
+          "assets/projects/web/salma/salma_5.jpg",
+          "assets/projects/web/salma/salma_6.jpg"
+        ],
+        "technologies": ["HTML", "CSS", "JavaScript", "Elegant Design"]
+      }
+    ],
+    "trainings": [
+      {
+        "name": "Training Round 1",
+        "description": "First round of hands-on technical training. Activities and group work documented in photos.",
+        "images": [
+          "assets/projects/trainings/round1/495901978_696197882799860_7493469523286210135_n.jpg",
+          "assets/projects/trainings/round1/495327776_696197852799863_931217729397733699_n.jpg",
+          "assets/projects/trainings/round1/493536171_696197812799867_3249225372456362770_n.jpg",
+          "assets/projects/trainings/round1/497454268_696197769466538_6838686250324227271_n.jpg"
+        ],
+        "technologies": ["Presentation skills", "Time management", "Developing" , "Teamwork" , "Communication skills"]
+      },
+      {
+        "name": "Training Round 2",
+        "description": "Second round of training with more advanced topics and teamwork.",
+        "images": [
+          "assets/projects/trainings/round2/474757014_620179063735076_410042604282961207_n.jpg",
+          "assets/projects/trainings/round2/474700592_620179087068407_2604813575524862230_n.jpg",
+          "assets/projects/trainings/round2/474679717_620179050401744_4752956868832417379_n.jpg"
+        ],
+        "technologies": ["Presentation skills", "Time management", "Developing" , "Teamwork" , "Communication skills"]
+      },
+      {
+        "name": "Training Round 3",
+        "description": "Final round of training, including presentations and project showcases.",
+        "images": [
+          "assets/projects/trainings/round3/475150551_620726857013630_5392190333349076433_n.jpg",
+          "assets/projects/trainings/round3/475270742_620726847013631_987739818725296962_n.jpg",
+          "assets/projects/trainings/round3/475312161_620726887013627_6542723434114614300_n.jpg",
+          "assets/projects/trainings/round3/475152659_620726773680305_5383638379902104264_n.jpg",
+          "assets/projects/trainings/round3/475478845_620726550346994_7876322961145214720_n.jpg"
+        ],
+        "technologies": ["Presentation skills", "Time management", "Developing" , "Teamwork" , "Communication skills"]
+      }
+    ]
+  }
+} 

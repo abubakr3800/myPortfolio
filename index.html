@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">myPortfolio - Create Your Professional Portfolio</title>
+    <link href="assets/library/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/venobox@2.0.7/dist/venobox.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/themes.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background Elements -->
+    <div class="floating-elements">
+        <div class="floating-element" style="--delay: 0s; --duration: 20s;"></div>
+        <div class="floating-element" style="--delay: 5s; --duration: 25s;"></div>
+        <div class="floating-element" style="--delay: 10s; --duration: 30s;"></div>
+        <div class="floating-element" style="--delay: 15s; --duration: 22s;"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" id="navbar-brand">myPortfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto" id="navbar-menu">
+                    <!-- Navigation items will be populated by JavaScript -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Welcome Page Content -->
+    <div id="welcome-page" style="display: none;">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="row align-items-center min-vh-100">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <h1 class="display-4 fw-bold text-white mb-4">
+                            <i class="fas fa-rocket me-3"></i>Welcome to myPortfolio
+                        </h1>
+                        <p class="lead text-white-50 mb-4">
+                            Create your professional portfolio in minutes with our easy-to-use platform
+                        </p>
+                        <p class="text-white-50 mb-5">
+                            Showcase your skills, projects, and achievements with a beautiful, responsive portfolio that stands out
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="#how-it-works" class="btn btn-primary btn-lg">
+                                <i class="fas fa-play me-2"></i>Get Started
+                            </a>
+                            <a href="#existing-portfolios" class="btn btn-outline-light btn-lg">
+                                <i class="fas fa-eye me-2"></i>See Examples
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator">
+                <div class="scroll-arrow"></div>
+                <span class="scroll-text">Scroll Down</span>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="py-5">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">How It Works</h2>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="about-card">
+                            <div class="card-icon">
+                                <i class="fas fa-user-plus fa-3x text-primary"></i>
+                            </div>
+                            <h4>Step 1: Create Account</h4>
+                            <p>Sign up with your email and choose a unique username for your portfolio URL</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="about-card">
+                            <div class="card-icon">
+                                <i class="fas fa-edit fa-3x text-primary"></i>
+                            </div>
+                            <h4>Step 2: Customize</h4>
+                            <p>Fill in your personal information, skills, projects, and achievements</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="about-card">
+                            <div class="card-icon">
+                                <i class="fas fa-share-alt fa-3x text-primary"></i>
+                            </div>
+                            <h4>Step 3: Share</h4>
+                            <p>Get your unique portfolio link and share it with employers and clients</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">Why Choose myPortfolio?</h2>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="about-card">
+                            <div class="card-icon">
+                                <i class="fas fa-mobile-alt fa-3x text-primary"></i>
+                            </div>
+                            <h4>Responsive Design</h4>
+                            <p>Your portfolio looks perfect on all devices - desktop, tablet, and mobile</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="about-card">
+                            <div class="card-icon">
+                                <i class="fas fa-palette fa-3x text-primary"></i>
+                            </div>
+                            <h4>Beautiful Themes</h4>
+                            <p>Professional design templates that make your portfolio stand out</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="about-card">
+                            <div class="card-icon">
+                                <i class="fas fa-bolt fa-3x text-primary"></i>
+                            </div>
+                            <h4>Fast & Easy</h4>
+                            <p>Create and update your portfolio in minutes, not hours</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="about-card">
+                            <div class="card-icon">
+                                <i class="fas fa-shield-alt fa-3x text-primary"></i>
+                            </div>
+                            <h4>Secure & Reliable</h4>
+                            <p>Your data is safe with our secure hosting and backup systems</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Existing Portfolios Section -->
+        <section id="existing-portfolios" class="py-5">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">Featured Portfolios</h2>
+                <div class="row" id="portfolios-grid">
+                    <!-- Portfolio cards will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-5 bg-dark text-white">
+            <div class="container text-center">
+                <h2 class="mb-4">Ready to Create Your Portfolio?</h2>
+                <p class="lead mb-4">Join thousands of professionals who trust myPortfolio to showcase their work</p>
+                <a href="login.html" class="btn btn-primary btn-lg">
+                    <i class="fas fa-rocket me-2"></i>Get Started Now
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Portfolio Content (Hidden by default) -->
+    <div id="portfolio-content" style="display: none;">
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold text-white mb-4" id="hero-name">Ahmed Mohamed Abubakr</h1>
+                    <p class="lead text-white-50 mb-4" id="hero-title"></p>
+                    <p class="text-white-50 mb-4" id="hero-objective"></p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary btn-lg">
+                            <i class="fas fa-rocket me-2"></i>View Projects
+                        </a>
+                        <a href="#contact" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-envelope me-2"></i>Contact Me
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <div class="hero-image">
+                        <i class="fas fa-microchip fa-10x text-primary"></i>
+                        <div class="hero-glow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+            <span class="scroll-text">Scroll Down</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title">About Me</h2>
+                    <div class="row mt-5">
+                        <div class="col-md-6 my-5">
+                            <div class="about-card">
+                                <div class="card-icon">
+                                    <i class="fas fa-graduation-cap fa-3x text-primary"></i>
+                                </div>
+                                <h4>Education</h4>
+                                <p id="education-degree"></p>
+                                <p id="education-institution"></p>
+                                <p id="education-year"></p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 my-5">
+                            <div class="about-card">
+                                <div class="card-icon">
+                                    <i class="fas fa-map-marker-alt fa-3x text-primary"></i>
+                                </div>
+                                <h4>Location</h4>
+                                <p id="location"></p>
+                                <p id="phone"></p>
+                                <p id="email"></p>
+                                <p id="cv-link"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Experience</h2>
+            <div class="row" id="experience-container">
+                <!-- Experience cards will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteering Section -->
+    <section id="volunteering" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Volunteering & Leadership</h2>
+            <div class="row" id="volunteering-container">
+                <!-- Volunteering cards will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-5 bg-light projects-section">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Projects</h2>
+            
+            <!-- Project Filter Buttons -->
+            <div class="project-filter-container">
+                <button class="project-filter-btn active" data-filter="all">
+                    <i class="fas fa-th-large me-2"></i>All Projects
+                </button>
+                <button class="project-filter-btn" data-filter="electronics">
+                    <i class="fas fa-microchip me-2"></i>Electronics
+                </button>
+                <button class="project-filter-btn" data-filter="web">
+                    <i class="fas fa-code me-2"></i>Web Development
+                </button>
+                <button class="project-filter-btn" data-filter="trainings">
+                    <i class="fas fa-graduation-cap me-2"></i>Trainings
+                </button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="project-grid" id="projects-grid">
+                <!-- Project cards will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Skills</h2>
+            <div class="accordion" id="skillsAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTechnical">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTechnical" aria-expanded="true" aria-controls="collapseTechnical">
+                            <i class="fas fa-cogs me-2 text-primary"></i> Technical Skills
+                        </button>
+                    </h2>
+                    <div id="collapseTechnical" class="accordion-collapse collapse" aria-labelledby="headingTechnical" data-bs-parent="#skillsAccordion">
+                        <div class="accordion-body" id="technical-skills">
+                            <!-- Technical skills badges will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTeaching">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTeaching" aria-expanded="false" aria-controls="collapseTeaching">
+                            <i class="fas fa-chalkboard-teacher me-2 text-primary"></i> Teaching Skills
+                        </button>
+                    </h2>
+                    <div id="collapseTeaching" class="accordion-collapse collapse" aria-labelledby="headingTeaching" data-bs-parent="#skillsAccordion">
+                        <div class="accordion-body" id="teaching-skills">
+                            <!-- Teaching skills badges will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingLanguages">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLanguages" aria-expanded="false" aria-controls="collapseLanguages">
+                            <i class="fas fa-language me-2 text-primary"></i> Languages
+                        </button>
+                    </h2>
+                    <div id="collapseLanguages" class="accordion-collapse collapse" aria-labelledby="headingLanguages" data-bs-parent="#skillsAccordion">
+                        <div class="accordion-body" id="language-skills">
+                            <!-- Language skills badges will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Certificates</h2>
+            <div class="row" id="certificates-container">
+                <!-- Certificates will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-dark text-white">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Contact Me</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="row text-center">
+                        <div class="col-md-4">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope fa-2x text-primary"></i>
+                                </div>
+                                <h5>Email</h5>
+                                <p id="contact-email"></p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone fa-2x text-primary"></i>
+                                </div>
+                                <h5>Phone</h5>
+                                <p id="contact-phone"></p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt fa-2x text-primary"></i>
+                                </div>
+                                <h5>Location</h5>
+                                <p id="contact-location"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-form-container">
+                        <h4 class="mb-4">
+                            <i class="fas fa-paper-plane me-2"></i>Send me a message
+                        </h4>
+                        <form id="contact-form">
+                            <div class="mb-3">
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-user"></i>
+                                    </span>
+                                    <input name="name" type="text" class="form-control" id="name" placeholder="Your Name" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-envelope"></i>
+                                    </span>
+                                    <input type="email" name="email" class="form-control" id="email" placeholder="Your Email" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-tag"></i>
+                                    </span>
+                                    <input type="text" name="subject" class="form-control" id="subject" placeholder="Subject" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-comment"></i>
+                                    </span>
+                                    <textarea name="message" class="form-control" id="message" rows="4" placeholder="Your Message" required></textarea>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100" id="send-btn">
+                                <span id="send-text">
+                                    <i class="fas fa-paper-plane me-2"></i>Send Message
+                                </span>
+                                <span id="send-loading" class="loading" style="display: none;"></span>
+                            </button>
+                        </form>
+                        <div id="form-message" class="mt-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                        <p id="footer-text">&copy; 2024 Ahmed Mohamed Abubakr. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        </div>
+
+    <!-- Fixed Social Link -->
+    <div class="fixed-social-link" id="socialLinksContainer" style="display: none;">
+        <!-- Social links will be dynamically loaded here -->
+    </div>
+
+    <!-- Certificate Modal (Bootstrap) -->
+    <div class="modal fade" id="certificateModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="certificateModalTitle"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="certificateModalBody">
+                    <!-- Certificate details will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Remove the Bootstrap project modal. Project images will use Venobox only. -->
+    <!-- Add a placeholder for hidden project detail containers (populated by JS). -->
+    <div id="venobox-project-details" style="display:none;"></div>
+
+    <!-- Project Description Modal -->
+    <div class="modal fade" id="descModal" tabindex="-1" aria-labelledby="descModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="descModalLabel">Project Details</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="descModalBody">
+            <!-- Full description will be loaded here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="assets/library/js/bootstrap.bundle.min.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/portfolio.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/venobox@2.0.7/dist/venobox.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        GLightbox({ selector: '.glightbox' });
+        
+        // Check URL parameters and show appropriate content
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('user');
+        
+        if (username) {
+          // Show portfolio for specific user
+          showPortfolio(username);
+        } else {
+          // Show welcome page
+          showWelcomePage();
+        }
+      });
+      
+      function showWelcomePage() {
+        document.getElementById('welcome-page').style.display = 'block';
+        document.getElementById('portfolio-content').style.display = 'none';
+        document.getElementById('page-title').textContent = 'myPortfolio - Create Your Professional Portfolio';
+        document.getElementById('navbar-brand').textContent = 'myPortfolio';
+        
+        // Load existing portfolios
+        loadExistingPortfolios();
+      }
+      
+      function showPortfolio(username) {
+        document.getElementById('welcome-page').style.display = 'none';
+        document.getElementById('portfolio-content').style.display = 'block';
+        
+        // Load portfolio data for the specific user
+        loadUserPortfolio(username);
+        
+        // Update navigation for portfolio view
+        updatePortfolioNavigation(username);
+      }
+      
+      function loadExistingPortfolios() {
+        fetch('data/users/users.json')
+          .then(response => response.json())
+          .then(data => {
+            const portfoliosGrid = document.getElementById('portfolios-grid');
+            portfoliosGrid.innerHTML = '';
+            
+            Object.keys(data).forEach(username => {
+              const userData = data[username];
+              const portfolioCard = createPortfolioCard(username, userData);
+              portfoliosGrid.appendChild(portfolioCard);
+            });
+          })
+          .catch(error => {
+            console.error('Error loading portfolios:', error);
+            document.getElementById('portfolios-grid').innerHTML = 
+              '<div class="col-12 text-center"><p class="text-muted">No portfolios available at the moment.</p></div>';
+          });
+      }
+      
+      function createPortfolioCard(username, userData) {
+        const col = document.createElement('div');
+        col.className = 'col-lg-4 col-md-6 mb-4';
+        
+        // Get random icon for portfolio
+        const icons = ['fas fa-user', 'fas fa-code', 'fas fa-paint-brush', 'fas fa-camera', 'fas fa-music', 'fas fa-gamepad', 'fas fa-book', 'fas fa-microscope'];
+        const randomIcon = icons[Math.floor(Math.random() * icons.length)];
+        
+        col.innerHTML = `
+          <div class="about-card">
+            <div class="card-icon">
+              <i class="${randomIcon} fa-3x text-primary"></i>
+            </div>
+            <h4>${username.charAt(0).toUpperCase() + username.slice(1)}</h4>
+            <p>Professional Portfolio</p>
+            <a href="?user=${username}" class="btn btn-primary">
+              <i class="fas fa-eye me-2"></i>View Portfolio
+            </a>
+          </div>
+        `;
+        
+        return col;
+      }
+      
+      function loadUserPortfolio(username) {
+        // Load user's portfolio data via API with cache-busting
+        fetch(`api/data.php?action=get&username=${username}&t=${Date.now()}`)
+          .then(response => response.json())
+          .then(result => {
+            if (!result.success) {
+              throw new Error(result.message || 'Failed to load user data');
+            }
+            const data = result.data;
+            // Update page title and branding
+            document.getElementById('page-title').textContent = `${data.personal.name} - Portfolio`;
+            document.getElementById('navbar-brand').textContent = data.personal.name.split(' ')[0];
+            
+            // Update footer
+            document.getElementById('footer-text').textContent = `© 2024 ${data.personal.name}. All rights reserved.`;
+            
+            // Apply theme if available
+            applyTheme(data.theme);
+            
+            // Load social links
+            loadSocialLinks(data.social);
+            
+            // Initialize portfolio with the loaded data
+            if (window.portfolio) {
+              window.portfolio.data = data;
+              window.portfolio.populateContent();
+            } else {
+              // Create a new portfolio instance with the data
+              window.portfolio = new Portfolio();
+              window.portfolio.data = data;
+              window.portfolio.populateContent();
+              window.portfolio.setupEventListeners();
+              window.portfolio.setupSmoothScrolling();
+              window.portfolio.createParticles();
+              window.portfolio.setupScrollAnimations();
+            }
+            
+            // Initialize GLightbox after content is loaded
+            setTimeout(() => {
+              if (window.GLightbox) {
+                GLightbox({ selector: '.glightbox' });
+              }
+            }, 1000);
+          })
+          .catch(error => {
+            console.error('Error loading user portfolio:', error);
+            // Show error message
+            document.getElementById('portfolio-content').innerHTML = `
+              <div class="container text-center py-5">
+                <h2>Portfolio Not Found</h2>
+                <p class="text-muted">The requested portfolio could not be found.</p>
+                <a href="index.html" class="btn btn-primary">Back to Home</a>
+              </div>
+            `;
+          });
+      }
+      
+      function updatePortfolioNavigation(username) {
+        const navbarMenu = document.getElementById('navbar-menu');
+        
+        // Check if current user is authenticated and viewing their own portfolio
+        const session = localStorage.getItem('portfolio_session');
+        let isAuthenticated = false;
+        let currentUser = null;
+        
+        if (session) {
+          try {
+            const sessionData = JSON.parse(session);
+            const now = new Date().getTime();
+            const sessionTime = new Date(sessionData.timestamp).getTime();
+            const hoursDiff = (now - sessionTime) / (1000 * 60 * 60);
+            
+            if (hoursDiff < 24 && sessionData.username === username) {
+              isAuthenticated = true;
+              currentUser = sessionData.username;
+            }
+          } catch (error) {
+            console.error('Error parsing session data:', error);
+          }
+        }
+        
+        navbarMenu.innerHTML = `
+          <li class="nav-item">
+            <a class="nav-link" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#experience">Experience</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#projects">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#skills">Skills</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#certificates">Certificates</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+          ${isAuthenticated ? `
+          <li class="nav-item">
+            <a class="nav-link" href="dashboard.html">
+              <i class="fas fa-tachometer-alt me-1"></i>Edit Portfolio
+            </a>
+          </li>
+          ` : `
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">
+              <i class="fas fa-tachometer-alt me-1"></i>Dashboard
+            </a>
+          </li>
+          `}
+        `;
+      }
+      
+      // Theme functionality
+      function applyTheme(themeData) {
+        // Check for URL theme parameter first (for preview)
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlTheme = urlParams.get('theme');
+        
+        let themeName = 'default';
+        let customThemeData = null;
+        
+        if (urlTheme) {
+          // URL theme parameter takes precedence (for preview)
+          themeName = urlTheme;
+        } else if (themeData && themeData.name) {
+          // Use saved theme from user data
+          themeName = themeData.name;
+          if (themeName === 'custom' && themeData.custom) {
+            customThemeData = themeData.custom;
+          }
+        }
+        
+        // Apply theme to document
+        document.documentElement.setAttribute('data-theme', themeName);
+        
+        // Apply custom theme data if available
+        if (themeName === 'custom' && customThemeData) {
+          applyCustomTheme(customThemeData);
+        }
+        
+        // If it's a preview, add a preview indicator
+        if (urlParams.get('preview') === 'true') {
+          addPreviewIndicator();
+        }
+      }
+      
+      function applyCustomTheme(customData) {
+        const root = document.documentElement;
+        
+        // Apply all custom theme variables
+        if (customData.primaryColor) root.style.setProperty('--primary-color', customData.primaryColor);
+        if (customData.primaryHover) root.style.setProperty('--primary-hover', customData.primaryHover);
+        if (customData.secondaryColor) root.style.setProperty('--secondary-color', customData.secondaryColor);
+        if (customData.bgPrimary) root.style.setProperty('--bg-primary', customData.bgPrimary);
+        if (customData.bgSecondary) root.style.setProperty('--bg-secondary', customData.bgSecondary);
+        if (customData.bgCard) root.style.setProperty('--bg-card', customData.bgCard);
+        if (customData.textPrimary) root.style.setProperty('--text-primary', customData.textPrimary);
+        if (customData.textSecondary) root.style.setProperty('--text-secondary', customData.textSecondary);
+        if (customData.textHero) root.style.setProperty('--text-hero', customData.textHero);
+        if (customData.heroStart && customData.heroEnd) {
+          root.style.setProperty('--bg-hero', `linear-gradient(135deg, ${customData.heroStart} 0%, ${customData.heroEnd} 100%)`);
+        }
+        if (customData.borderColor) root.style.setProperty('--border-color', customData.borderColor);
+        if (customData.navbarBg) root.style.setProperty('--bg-navbar', customData.navbarBg);
+        if (customData.footerBg) root.style.setProperty('--bg-footer', customData.footerBg);
+        if (customData.fontFamily) root.style.setProperty('--font-family', customData.fontFamily);
+        if (customData.fontSize) root.style.setProperty('--font-size-base', customData.fontSize);
+      }
+      
+      function addPreviewIndicator() {
+        // Add a preview banner
+        const previewBanner = document.createElement('div');
+        previewBanner.className = 'preview-banner';
+        previewBanner.innerHTML = `
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col">
+                <i class="fas fa-eye me-2"></i>
+                <strong>Theme Preview Mode</strong> - This is how your portfolio will look with the selected theme
+              </div>
+              <div class="col-auto">
+                <button class="btn btn-sm btn-outline-light" onclick="this.parentElement.parentElement.parentElement.remove()">
+                  <i class="fas fa-times"></i> Close Preview
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+        
+        // Add styles for preview banner
+        const style = document.createElement('style');
+        style.textContent = `
+          .preview-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 10px 0;
+            z-index: 9999;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+          }
+          .preview-banner .container {
+            margin-top: 0;
+          }
+          body {
+            margin-top: 60px;
+          }
+        `;
+        document.head.appendChild(style);
+        document.body.insertBefore(previewBanner, document.body.firstChild);
+      }
+      
+      function loadSocialLinks(socialData) {
+        const container = document.getElementById('socialLinksContainer');
+        if (!container) return;
+        
+        if (!socialData) {
+          container.style.display = 'none';
+          return;
+        }
+        
+        let socialHtml = '';
+        
+        // Check for Linktree URL first
+        if (socialData.linktree) {
+          socialHtml = `
+            <a href="${socialData.linktree}" class="social-link" target="_blank" rel="noopener" title="All Social Links">
+              <i class="fas fa-link"></i>
+            </a>
+          `;
+        } else if (socialData.individual) {
+          // Show individual social links
+          const socialLinks = [
+            { url: socialData.individual.facebook, icon: 'fab fa-facebook', title: 'Facebook' },
+            { url: socialData.individual.twitter, icon: 'fab fa-twitter', title: 'Twitter' },
+            { url: socialData.individual.linkedin, icon: 'fab fa-linkedin', title: 'LinkedIn' },
+            { url: socialData.individual.instagram, icon: 'fab fa-instagram', title: 'Instagram' },
+            { url: socialData.individual.github, icon: 'fab fa-github', title: 'GitHub' },
+            { url: socialData.individual.youtube, icon: 'fab fa-youtube', title: 'YouTube' },
+            { url: socialData.individual.behance, icon: 'fab fa-behance', title: 'Behance' },
+            { url: socialData.individual.dribbble, icon: 'fab fa-dribbble', title: 'Dribbble' }
+          ];
+          
+          const activeLinks = socialLinks.filter(link => link.url);
+          
+          if (activeLinks.length > 0) {
+            socialHtml = activeLinks.map(link => `
+              <a href="${link.url}" class="social-link" target="_blank" rel="noopener" title="${link.title}">
+                <i class="${link.icon}"></i>
+              </a>
+            `).join('');
+          }
+        }
+        
+        if (socialHtml) {
+          container.innerHTML = socialHtml;
+          container.style.display = 'block';
+        } else {
+          container.style.display = 'none';
+        }
+      }
+    </script>
+</body>
+</html> 
