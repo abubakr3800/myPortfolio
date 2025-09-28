@@ -16,7 +16,9 @@ class AuthSystem {
         const loginForm = document.getElementById('loginForm');
         const registerForm = document.getElementById('registerForm');
 
-        switchCheckbox.addEventListener('change', () => {
+        // Check if elements exist before adding event listeners
+        if (switchCheckbox && loginForm && registerForm) {
+            switchCheckbox.addEventListener('change', () => {
             if (switchCheckbox.checked) {
                 loginForm.style.display = 'none';
                 registerForm.style.display = 'block';
@@ -28,18 +30,25 @@ class AuthSystem {
             }
             this.clearAlerts();
         });
+        }
 
         // Login form submission
-        document.getElementById('loginForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            this.handleLogin();
-        });
+        const loginFormElement = document.getElementById('loginForm');
+        if (loginFormElement) {
+            loginFormElement.addEventListener('submit', (e) => {
+                e.preventDefault();
+                this.handleLogin();
+            });
+        }
 
         // Register form submission
-        document.getElementById('registerForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            this.handleRegister();
-        });
+        const registerFormElement = document.getElementById('registerForm');
+        if (registerFormElement) {
+            registerFormElement.addEventListener('submit', (e) => {
+                e.preventDefault();
+                this.handleRegister();
+            });
+        }
     }
 
     checkExistingSession() {
@@ -255,7 +264,10 @@ class AuthSystem {
     }
 }
 
-// Initialize authentication system
+// Initialize authentication system only on login page
 document.addEventListener('DOMContentLoaded', () => {
-    new AuthSystem();
+    // Only initialize AuthSystem on login page, not on dashboard
+    if (window.location.pathname.includes('login.html') || window.location.pathname.endsWith('/') || window.location.pathname === '') {
+        new AuthSystem();
+    }
 });

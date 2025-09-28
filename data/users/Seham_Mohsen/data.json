@@ -17,9 +17,9 @@
     "volunteering": [],
     "certificates": [],
     "skills": {
-        "technical": [],
-        "teaching": [],
-        "languages": []
+        "technical": ["PHP", "Laravel", "MySQL", "JavaScript"],
+        "teaching": ["Web Development", "Database Design"],
+        "languages": ["Arabic", "English"]
     },
     "projects": {
         "electronics": [],

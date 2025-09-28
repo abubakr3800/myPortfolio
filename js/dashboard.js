@@ -4,6 +4,7 @@ class DashboardManager {
         this.currentUser = null;
         this.currentData = null;
         this.currentSection = 'personal';
+        this.isSaving = false; // Add save lock
         this.init();
     }
 
@@ -46,6 +47,14 @@ class DashboardManager {
     }
 
     async saveUserData() {
+        // Prevent multiple simultaneous saves
+        if (this.isSaving) {
+            console.log('Save already in progress, skipping...');
+            return;
+        }
+        
+        this.isSaving = true;
+        
         try {
             // Show saving status
             this.showSaveStatus('saving');
@@ -89,6 +98,9 @@ class DashboardManager {
             console.error('Error saving user data:', error);
             this.showSaveStatus('error');
             this.showAlert('Error saving data: ' + error.message, 'danger');
+        } finally {
+            // Always unlock the save function
+            this.isSaving = false;
         }
     }
 
@@ -335,6 +347,9 @@ class DashboardManager {
             year: document.getElementById('educationYear').value
         };
 
+        // Skills data is already managed by the skill management functions
+        // No need to collect it here as it's handled separately
+
         // Form data collected successfully
     }
 
@@ -553,8 +568,20 @@ class DashboardManager {
     }
 
     addSkill(category) {
-        const inputId = `new${category.charAt(0).toUpperCase() + category.slice(1)}Skill`;
+        // Handle special case for languages (singular in HTML)
+        let inputId;
+        if (category === 'languages') {
+            inputId = 'newLanguageSkill';
+        } else {
+            inputId = `new${category.charAt(0).toUpperCase() + category.slice(1)}Skill`;
+        }
         const input = document.getElementById(inputId);
+        
+        if (!input) {
+            console.error(`Input element with id '${inputId}' not found`);
+            return;
+        }
+        
         const skill = input.value.trim();
 
         if (!skill) return;
@@ -569,13 +596,29 @@ class DashboardManager {
 
         this.currentData.skills[category].push(skill);
         input.value = '';
-        this.loadSkillCategory(category, `${category}SkillsList`);
+        
+        // Map category names to container IDs
+        const containerMap = {
+            'technical': 'technicalSkillsList',
+            'teaching': 'teachingSkillsList', 
+            'languages': 'languageSkillsList'
+        };
+        
+        this.loadSkillCategory(category, containerMap[category]);
         this.showAlert('Skill added successfully!', 'success');
     }
 
     removeSkill(category, index) {
         this.currentData.skills[category].splice(index, 1);
-        this.loadSkillCategory(category, `${category}SkillsList`);
+        
+        // Map category names to container IDs
+        const containerMap = {
+            'technical': 'technicalSkillsList',
+            'teaching': 'teachingSkillsList', 
+            'languages': 'languageSkillsList'
+        };
+        
+        this.loadSkillCategory(category, containerMap[category]);
         this.showAlert('Skill removed successfully!', 'success');
     }
 
@@ -1156,6 +1199,53 @@ class DashboardManager {
             const checkbox = document.getElementById('deleteConfirmCheck');
             deleteBtn.disabled = !checkbox.checked || !e.target.value;
         });
+
+        // Mobile sidebar functionality
+        this.setupMobileNavigation();
+    }
+
+    setupMobileNavigation() {
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+        console.log('Mobile navigation setup:', { sidebarToggle, sidebar, sidebarOverlay });
+
+        if (sidebarToggle && sidebar && sidebarOverlay) {
+            // Toggle sidebar
+            sidebarToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                console.log('Sidebar toggle clicked');
+                sidebar.classList.toggle('show');
+                sidebarOverlay.classList.toggle('show');
+                console.log('Sidebar classes:', sidebar.className);
+            });
+
+            // Close sidebar when overlay is clicked
+            sidebarOverlay.addEventListener('click', () => {
+                sidebar.classList.remove('show');
+                sidebarOverlay.classList.remove('show');
+            });
+
+            // Close sidebar when nav link is clicked (on mobile)
+            const navLinks = sidebar.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth < 768) {
+                        sidebar.classList.remove('show');
+                        sidebarOverlay.classList.remove('show');
+                    }
+                });
+            });
+
+            // Close sidebar on window resize if screen becomes larger
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 768) {
+                    sidebar.classList.remove('show');
+                    sidebarOverlay.classList.remove('show');
+                }
+            });
+        }
     }
 
     selectTheme(themeName) {
